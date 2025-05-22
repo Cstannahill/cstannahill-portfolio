@@ -13,10 +13,46 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { ChevronLeft } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Blog | Christian Tannahill",
-  description: "Thoughts and insights on software development and technology",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const baseURL =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://cstannahill-software-dev.vercel.app";
+
+  return {
+    metadataBase: new URL(baseURL),
+    title: "Blog | Christian Tannahill",
+    description: "Thoughts and insights on software development and technology",
+    openGraph: {
+      title: "Blog | Christian Tannahill",
+      description:
+        "Thoughts and insights on software development and technology",
+      type: "website",
+      url: `${baseURL}/${locale}/blog`,
+      images: [
+        {
+          url: `${baseURL}/og-blog.png`,
+          width: 1200,
+          height: 630,
+          alt: "Christian Tannahill's Blog",
+        },
+      ],
+      siteName: "Christian Tannahill",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Blog | Christian Tannahill",
+      description:
+        "Thoughts and insights on software development and technology",
+      images: [`${baseURL}/og-blog.png`],
+    },
+  };
+}
 
 export default async function BlogPage({
   params,
@@ -57,26 +93,35 @@ export default async function BlogPage({
                     />
                   </div>
                 ) : (
-                  <div className="hidden md:flex items-center justify-center bg-secondary/30 md:rounded-l-lg rounded-t-lg">
-                    <div className="p-6 text-center">
-                      <div className="w-12 h-12 mx-auto mb-3 text-accent-light opacity-50">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={1.5}
-                            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-foreground">No cover image</p>
-                    </div>
+                  <div className="relative aspect-[16/9] md:aspect-square overflow-hidden md:rounded-l-lg rounded-t-lg">
+                    <Image
+                      src={"/ctan-dev.png"}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform hover:scale-105 duration-700"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
                   </div>
+                  // <div className="hidden md:flex items-center justify-center bg-secondary/30 md:rounded-l-lg rounded-t-lg">
+                  //   <div className="p-6 text-center">
+                  //     <div className="w-12 h-12 mx-auto mb-3 text-accent-light opacity-50">
+                  //       <svg
+                  //         xmlns="http://www.w3.org/2000/svg"
+                  //         fill="none"
+                  //         viewBox="0 0 24 24"
+                  //         stroke="currentColor"
+                  //       >
+                  //         <path
+                  //           strokeLinecap="round"
+                  //           strokeLinejoin="round"
+                  //           strokeWidth={1.5}
+                  //           d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                  //         />
+                  //       </svg>
+                  //     </div>
+                  //     <p className="text-sm text-foreground">No cover image</p>
+                  //   </div>
+                  // </div>
                 )}
 
                 <div className="p-6">

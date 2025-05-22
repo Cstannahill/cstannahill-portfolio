@@ -18,11 +18,47 @@ import RMCollab from "@/components/readme/RMCollab";
 import RMQuote from "@/components/readme/RMQuote";
 import RMHeader from "@/components/readme/RMHeader";
 
-export const metadata: Metadata = {
-  title: "README | Christian Tannahill",
-  description:
-    "GitHub README-style overview of my development journey, skills, and projects",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const baseURL =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://cstannahill-software-dev.vercel.app";
+
+  return {
+    metadataBase: new URL(baseURL),
+    title: "README | Christian Tannahill",
+    description:
+      "GitHub README-style overview of my development journey, skills, and projects",
+    openGraph: {
+      title: "README | Christian Tannahill",
+      description:
+        "GitHub README-style overview of my development journey, skills, and projects",
+      type: "website",
+      url: `${baseURL}/${locale}/readme`,
+      images: [
+        {
+          url: `${baseURL}/og-readme.png`,
+          width: 1200,
+          height: 630,
+          alt: "Christian Tannahill's README",
+        },
+      ],
+      siteName: "Christian Tannahill",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "README | Christian Tannahill",
+      description:
+        "GitHub README-style overview of my development journey, skills, and projects",
+      images: [`${baseURL}/og-readme.png`],
+    },
+  };
+}
 
 export default async function ReadmePage({
   params,

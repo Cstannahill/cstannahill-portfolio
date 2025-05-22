@@ -13,11 +13,47 @@ import HMEducationSkills from "@/components/home/HMEducationSkills";
 import HMAreasOfInterest from "@/components/home/HMAreasOfInterest";
 import SectionDivider from "@/components/shared/SectionDivider";
 
-export const metadata: Metadata = {
-  title: "Christian Tannahill | Full-Stack Software Engineer",
-  description:
-    "Portfolio showcasing my work as a Full-Stack Software Engineer, crafting intuitive UIs & robust APIs",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const baseURL =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://cstannahill-software-dev.vercel.app";
+
+  return {
+    metadataBase: new URL(baseURL),
+    title: "Christian Tannahill | Full-Stack Software Engineer",
+    description:
+      "Portfolio showcasing my work as a Full-Stack Software Engineer, crafting intuitive UIs & robust APIs",
+    openGraph: {
+      title: "Christian Tannahill | Full-Stack Software Engineer",
+      description:
+        "Portfolio showcasing my work as a Full-Stack Software Engineer, crafting intuitive UIs & robust APIs",
+      type: "website",
+      url: `${baseURL}/${locale}`,
+      images: [
+        {
+          url: `${baseURL}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: "Christian Tannahill - Full-Stack Software Engineer",
+        },
+      ],
+      siteName: "Christian Tannahill",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Christian Tannahill | Full-Stack Software Engineer",
+      description:
+        "Portfolio showcasing my work as a Full-Stack Software Engineer, crafting intuitive UIs & robust APIs",
+      images: [`${baseURL}/og-image.png`],
+    },
+  };
+}
 
 export default async function HomePage({
   params,

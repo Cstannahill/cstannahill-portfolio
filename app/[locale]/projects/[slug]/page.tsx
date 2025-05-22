@@ -20,18 +20,65 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  const baseURL =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://cstannahill-software-dev.vercel.app";
 
   try {
     const { metadata } = await getProjectBySlug(slug, locale);
 
+    // Default image or first project image
+    const ogImage =
+      metadata?.ogImage ||
+      (metadata.images && metadata.images.length > 0
+        ? metadata.images[0]
+        : `${baseURL}/og-image.png`);
+
     return {
+      metadataBase: new URL(baseURL),
       title: `${metadata.title} | Christian Tannahill`,
       description: metadata.excerpt || metadata.summary || "",
+      openGraph: {
+        title: metadata.title,
+        description: metadata.excerpt || metadata.summary || "",
+        type: "article",
+        publishedTime: metadata.publishedAt || metadata.date,
+        url: `${baseURL}/${locale}/projects/${slug}`,
+        images: [
+          {
+            url: ogImage,
+            width: 1200,
+            height: 630,
+            alt: metadata.title,
+          },
+        ],
+        siteName: "Christian Tannahill",
+        locale: locale === "fr" ? "fr_FR" : "en_US",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: metadata.title,
+        description: metadata.excerpt || metadata.summary || "",
+        images: [ogImage],
+      },
     };
   } catch (error) {
     return {
       title: "Project Not Found | Christian Tannahill",
       description: "The requested project could not be found.",
+      openGraph: {
+        title: "Project Not Found | Christian Tannahill",
+        description: "The requested project could not be found.",
+        type: "website",
+        url: `${baseURL}/${locale}/projects`,
+        siteName: "Christian Tannahill",
+        locale: locale === "fr" ? "fr_FR" : "en_US",
+      },
+      twitter: {
+        card: "summary",
+        title: "Project Not Found | Christian Tannahill",
+        description: "The requested project could not be found.",
+      },
     };
   }
 }

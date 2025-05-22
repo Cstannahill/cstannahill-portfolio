@@ -29,6 +29,7 @@ export type ProjectMetadata = {
   images?: string[];
   demoUrl?: string;
   sourceUrl?: string;
+  ogImage?: string;
 };
 
 const postsDirectory = path.join(process.cwd(), "content/blog");
