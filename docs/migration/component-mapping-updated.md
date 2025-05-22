@@ -1,4 +1,17 @@
-# Component Mapping Table (Updated)
+## Page Mapping
+
+| Current Page Route  | New File Path                         | Migration Status | Notes                           |
+| ------------------- | ------------------------------------- | ---------------- | ------------------------------- |
+| /en                 | app/[locale]/page.tsx                 | ☐                | Home page with locale parameter |
+| /en/readme          | app/[locale]/readme/page.tsx          | ☐                | About/readme page               |
+| /en/blog            | app/[locale]/blog/page.tsx            | ☐                | Blog index page                 |
+| /en/blog/[slug]     | app/[locale]/blog/[slug]/page.tsx     | ☐                | Individual blog post page       |
+| /en/projects        | app/[locale]/projects/page.tsx        | ☐                | Projects index page (renamed)   |
+| /en/projects/[slug] | app/[locale]/projects/[slug]/page.tsx | ☐                | Individual project detail page  |
+
+## Utility Files Mapping
+
+// ... existing utility mapping ...# Component Mapping Table (Updated)
 
 This table provides a detailed mapping of all components in the current portfolio, their migration status, new implementation approach (TailwindCSS/shadcn/ui), and the updated file paths for the new structure without src/ directory.
 

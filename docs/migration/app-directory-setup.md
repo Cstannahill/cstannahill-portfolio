@@ -13,7 +13,7 @@ cstannahill-portfolio/
 │   │   ├── blog/           # Blog pages
 │   │   │   ├── page.tsx    # Blog index
 │   │   │   └── [slug]/     # Dynamic blog post routes
-│   │   └── work/           # Projects/portfolio pages
+│   │   └── projects/           # Projects/portfolio pages
 │   │       ├── page.tsx    # Projects index
 │   │       └── [slug]/     # Dynamic project routes
 │   ├── globals.css         # Global styles

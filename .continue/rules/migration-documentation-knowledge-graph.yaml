@@ -1,0 +1,8 @@
+name: Migration Documentation Knowledge Graph
+version: 0.0.1
+schema: v1
+rules:
+  - name: Migration Documentation Knowledge Graph
+    rule: Update knowledge graph to reflect comprehensive details from migration
+      documentation including structure, technical conflicts, mobile-first
+      implementation strategies, and project setup guides.
