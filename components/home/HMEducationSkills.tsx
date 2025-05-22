@@ -89,7 +89,10 @@ const HMEducationSkills = () => {
               Core Skills
             </h2>
             {skillsData.map((skill, index) => (
-              <div key={index} className="mb-4">
+              <div
+                key={index}
+                className="mb-4 bg-card rounded-lg border border-accent/10 p-4"
+              >
                 <div className="flex justify-between mb-1">
                   <span className="font-medium">{skill.name}</span>
                   <span className="text-foreground">{skill.proficiency}%</span>

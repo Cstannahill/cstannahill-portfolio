@@ -65,7 +65,7 @@ const HMAreasOfInterest = () => {
         <SectionHeading
           title="Areas of Interest"
           subtitle="Technologies and concepts I'm currently exploring and building with"
-          gradient={true}
+          gradient={false}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

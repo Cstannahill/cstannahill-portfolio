@@ -36,7 +36,7 @@ const HMLatestPosts = ({ posts, locale }: HMLatestPostsProps) => {
             {posts.slice(0, 2).map((post) => (
               <Card
                 key={post.slug || `post-${Math.random()}`}
-                className="hover:border-accent/20 transition-all duration-300"
+                className="border-accent/10 transition-all duration-300"
               >
                 <CardHeader className="p-4">
                   <div className="text-sm text-foreground mb-2">

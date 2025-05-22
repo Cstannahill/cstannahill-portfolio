@@ -8,6 +8,7 @@
 
 @theme inline {
   /* Map Tailwind theme tokens to CSS variables for dynamic theming */
+  --color-header: var(--header);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
@@ -119,6 +120,8 @@
 
   /* Destructive (red) */
   --destructive: oklch(0.62 0.23 27); /* #ef4444 (red-500) */
+
+  --header: oklch(0.1451 0.0048 85.92);
 }
 
 @layer base {

@@ -33,7 +33,7 @@ const HMTechStack = () => {
   ];
 
   return (
-    <section className="py-12 bg-secondary/5">
+    <section className="py-12 bg-card rounded-lg border border-accent/10">
       <SectionHeading
         title="My Tech Stack"
         subtitle="Technologies and tools I use to bring products to life"
@@ -44,7 +44,7 @@ const HMTechStack = () => {
         {techCategories.map((category, idx) => (
           <div
             key={idx}
-            className="p-6 rounded-lg bg-secondary/20 border border-accent/10"
+            className="p-6 rounded-lg bg-[#131b29] border border-cyan-900/30"
           >
             <h2 className="text-xl font-semibold mb-4 text-silver-light">
               {category.name}

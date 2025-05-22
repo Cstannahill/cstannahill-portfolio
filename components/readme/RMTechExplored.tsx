@@ -1,3 +1,9 @@
+const BadgeImage = ({ src, alt }: { src: string; alt: string }) => (
+  <div className="w-[60px] h-[45px] flex items-center justify-center bg-slate-800/50 rounded-md overflow-hidden">
+    <img src={src} alt={alt} className="object-contain w-full h-full" />
+  </div>
+);
+
 const RMTechExplored = () => {
   return (
     <section>
@@ -11,230 +17,158 @@ const RMTechExplored = () => {
       </h2>
       <div className="grid grid-cols-6 gap-2 justify-items-center mb-6">
         {/* Row 1 - Languages */}
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-3178C6?logo=typescript&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="TypeScript"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-F7DF1E?logo=javascript&logoColor=black&style=plastic"
-          width="60"
-          height="45"
           alt="JavaScript"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/C%23-239120?logo=csharp&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="C#"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-3776AB?logo=python&logoColor=FFD43B&style=plastic"
-          width="60"
-          height="45"
           alt="Python"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-00599C?logo=c%2B%2B&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="C++"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-2C2D72?logo=lua&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Lua"
         />
 
         {/* Row 2 - Frontend */}
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-20232A?logo=react&logoColor=61DAFB&style=plastic"
-          width="60"
-          height="45"
           alt="React"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-000000?logo=nextdotjs&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Next.js"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-06B6D4?logo=tailwindcss&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Tailwind CSS"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-000000?logo=stripe&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Stripe"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-ffffff?logo=redux&logoColor=764ABC&style=plastic"
-          width="60"
-          height="45"
           alt="Redux"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-333333?logo=npm&logoColor=white&style=plastic&label=Inquirer"
-          width="60"
-          height="45"
           alt="Inquirer"
         />
 
         {/* Row 3 - Backend */}
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-512BD4?logo=blazor&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Blazor"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-339933?logo=nodedotjs&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Node.js"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-000000?logo=express&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Express"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-512BD4?logo=dotnet&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt=".NET"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-2D3748?logo=prisma&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Prisma"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-336791?logo=postgresql&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="PostgreSQL"
         />
 
         {/* Row 4 - AI & Tools */}
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-fdfdfd?logo=axios&logoColor=5A29E4&style=plastic"
-          width="60"
-          height="45"
           alt="Axios"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-6C3483?logo=dotnet&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Entity Framework"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-412991?logo=openai&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="OpenAI"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/Ollama-000000?style=plastic&logo=ollama&logoColor=white"
-          width="60"
-          height="45"
           alt="Ollama"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/Anthropic-1A1A1A?style=plastic&logo=anthropic&logoColor=white"
-          width="60"
-          height="45"
           alt="Anthropic"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/LangChain-D4FF00?style=plastic&logo=langchain&logoColor=black"
-          width="60"
-          height="45"
           alt="LangChain"
         />
 
         {/* Row 5 - DevOps & Tools */}
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/LangGraph-000000?style=plastic&logoColor=white"
-          width="60"
-          height="45"
           alt="LangGraph"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-2496ED?logo=docker&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Docker"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/Azure-0089D6?logo=azuredevops&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Azure"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-2088FF?logo=githubactions&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="GitHub Actions"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-fefefe?logo=mermaid&logoColor=FF3670&style=plastic"
-          width="60"
-          height="45"
           alt="Mermaid"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-000000?logo=mdx&logoColor=yellow&style=plastic"
-          width="60"
-          height="45"
           alt="MDX"
         />
 
         {/* Row 6 - Additional Tools */}
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-F05032?logo=git&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Git"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-6E4C13?logo=jsonwebtokens&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="JWT"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-7B4EA3?logo=nestjs&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="NestJS"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-FFCB2B?logo=vite&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Vite"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-333333?logo=electron&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Electron"
         />
-        <img
+        <BadgeImage
           src="https://img.shields.io/badge/-005F69?logo=swagger&logoColor=white&style=plastic"
-          width="60"
-          height="45"
           alt="Swagger"
         />
       </div>

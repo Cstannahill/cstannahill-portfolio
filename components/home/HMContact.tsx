@@ -11,7 +11,7 @@ const HMContact = () => {
         <SectionHeading
           title="Let's Connect"
           subtitle="Interested in working together? Reach out through any of these channels"
-          gradient={true}
+          gradient={false}
         />
 
         <div className="flex flex-col items-center justify-center space-y-6 max-w-md mx-auto">
@@ -21,7 +21,7 @@ const HMContact = () => {
               className="bg-secondary/30 border-accent/30 hover:border-accent hover:bg-secondary/50"
               asChild
             >
-              <a href="mailto:christian.tannahill@gmail.com">
+              <a href="mailto:christiantannahill2@gmail.com">
                 <Mail className="mr-2 h-4 w-4" />
                 Email Me
               </a>
@@ -63,7 +63,7 @@ const HMContact = () => {
               asChild
             >
               <a
-                href="https://www.linkedin.com/in/christian-tannahill-806083a9"
+                href="https://www.linkedin.com/in/christian-tannahill"
                 target="_blank"
                 rel="noopener noreferrer"
               >

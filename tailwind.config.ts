@@ -20,6 +20,7 @@ const config: Config = {
     extend: {
       colors: {
         // Custom color palette mapped to CSS variables (see globals.css)
+        header: "var(--header)",
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
