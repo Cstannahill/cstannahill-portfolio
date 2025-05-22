@@ -27,15 +27,22 @@ export function MetricItem({
     >
       {/* Restructured layout - place value on a new line */}
       <div className="flex items-center mb-1">
-        <h4 className="text-sm font-medium flex items-center">
+        {" "}
+        <h3 className="text-sm font-medium flex items-center">
           {icon && <span className="mr-2">{icon}</span>}
           {label}
-        </h4>
+        </h3>
       </div>
       <div className="mb-2">
         <span className="text-lg font-bold block">{value}</span>
       </div>
-      {progress !== undefined && <Progress value={progress} className="h-2" />}
+      {progress !== undefined && (
+        <Progress
+          value={progress}
+          aria-label={`${label}: ${progress}%`}
+          className="h-2"
+        />
+      )}
     </div>
   );
 }
@@ -53,10 +60,11 @@ export function ProjectMetrics({
 }: ProjectMetricsProps) {
   return (
     <div className={cn("my-6", className)}>
-      <h3 className="text-xl font-bold mb-3 flex items-center">
+      {" "}
+      <h2 className="text-xl font-bold mb-3 flex items-center">
         <span className="mr-2">📊</span>
         {title}
-      </h3>
+      </h2>
       <div className="grid-metrics">
         {metrics.map((metric, index) => (
           <MetricItem

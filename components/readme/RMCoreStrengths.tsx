@@ -57,7 +57,7 @@ const RMCoreStrengths = () => {
           </tbody>
         </table>
       </div>
-      <p className="mt-4 text-muted-foreground">
+      <p className="mt-4 text-foreground">
         I build fast, document thoroughly, and prioritize MVP-first releases so
         projects deliver value early and evolve iteratively.
       </p>

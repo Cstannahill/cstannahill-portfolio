@@ -53,10 +53,11 @@ export function ProjectTechStack({
 }: ProjectTechStackProps) {
   return (
     <div className={cn("my-6", className)}>
-      <h3 className="text-xl font-bold mb-3 flex items-center">
+      {" "}
+      <h2 className="text-xl font-bold mb-3 flex items-center">
         <span className="mr-2">🛠️</span>
         {title}
-      </h3>
+      </h2>
       <div className="p-4 border border-border rounded-lg bg-card/30">
         {children && <div className="mb-3">{children}</div>}
         <div className="flex flex-wrap gap-2">

@@ -49,10 +49,10 @@ export function TimelineItem({
           statusBgClasses[status]
         )}
       >
-        <div className="text-sm text-muted-foreground mb-1">{date}</div>
-        <h4 className="font-medium mb-1">{title}</h4>
+        <div className="text-sm text-foreground mb-1">{date}</div>{" "}
+        <h3 className="font-medium mb-1">{title}</h3>
         {description && (
-          <p className="text-sm text-muted-foreground">{description}</p>
+          <p className="text-sm text-foreground">{description}</p>
         )}
       </div>
     </div>
@@ -72,10 +72,11 @@ export function ProjectTimeline({
 }: ProjectTimelineProps) {
   return (
     <div className={cn("my-6", className)}>
-      <h3 className="text-xl font-bold mb-3 flex items-center">
+      {" "}
+      <h2 className="text-xl font-bold mb-3 flex items-center">
         <span className="mr-2">📅</span>
         {title}
-      </h3>
+      </h2>
       <div className="relative pl-8 pt-1 pb-1">
         {items.map((item, index) => (
           <TimelineItem

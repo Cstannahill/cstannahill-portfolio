@@ -27,7 +27,7 @@ const HMHero = ({ locale }: HMHeroProps) => {
       <p className="mt-4 text-2xl text-accent font-medium">
         Full‑Stack Software Engineer
       </p>
-      <p className="mt-6 max-w-[42rem] text-lg text-muted-foreground">
+      <p className="mt-6 max-w-[42rem] text-lg text-foreground">
         I craft intuitive UIs & robust APIs, turning ideas into polished
         products.
       </p>
@@ -55,11 +55,13 @@ const HMHero = ({ locale }: HMHeroProps) => {
           </a>
         </Button>
       </div>
-      {/* Hiring Notice */}
+      {/* Availability Notice */}
       <div className="mt-8 rounded-lg bg-accent-dark/20 border border-accent/30 px-6 py-3">
         <p className="text-sm">
-          <span className="font-medium text-accent-light">Now hiring</span> –
-          freelance work available
+          <span className="font-medium text-accent-light">
+            Available for hire
+          </span>{" "}
+          – open to employment & freelance opportunities
         </p>
       </div>
     </section>

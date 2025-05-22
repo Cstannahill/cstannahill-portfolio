@@ -30,7 +30,7 @@ const HMFeaturedProjects = ({ projects, locale }: HMFeaturedProjectsProps) => {
       </div>
 
       {projects.length === 0 && (
-        <p className="text-center text-muted-foreground">
+        <p className="text-center text-foreground">
           Featured projects coming soon!
         </p>
       )}

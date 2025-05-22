@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 // Import components directly
 import { ComponentShowcase } from "@/components/content/ComponentShowcase";
@@ -40,7 +40,7 @@ const H1 = ({ children, id, className }: HeadingProps) => (
     {id && (
       <a
         href={`#${id}`}
-        className="ml-2 text-muted-foreground opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
+        className="ml-2 text-foreground opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
         aria-label={`Link to ${children}`}
       >
         #
@@ -58,7 +58,7 @@ const H2 = ({ children, id, className }: HeadingProps) => (
     {id && (
       <a
         href={`#${id}`}
-        className="ml-2 text-muted-foreground opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
+        className="ml-2 text-foreground opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
         aria-label={`Link to ${children}`}
       >
         #
@@ -76,7 +76,7 @@ const H3 = ({ children, id, className }: HeadingProps) => (
     {id && (
       <a
         href={`#${id}`}
-        className="ml-2 text-muted-foreground opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
+        className="ml-2 text-foreground opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100"
         aria-label={`Link to ${children}`}
       >
         #
@@ -167,9 +167,25 @@ export const MDXComponents = {
   ),
   img: MDXImage,
   a: MDXLink,
-  p: ({ children, className }: { children: ReactNode; className?: string }) => (
-    <p className={cn("mb-4 leading-7", className)}>{children}</p>
-  ),
+  p: ({ children, className }: { children: ReactNode; className?: string }) => {
+    // Check if children contains any paragraph elements to avoid nesting
+    const hasNestedP = React.Children.toArray(children).some(
+      (child) =>
+        React.isValidElement(child) &&
+        (child.type === "p" ||
+          (typeof child.type === "string" &&
+            child.type.toLowerCase() === "p") ||
+          (typeof child.type === "function" && child.type.name === "p"))
+    );
+
+    // If nested paragraph is detected, use a div instead
+    if (hasNestedP) {
+      return <div className={cn("mb-4 leading-7", className)}>{children}</div>;
+    }
+
+    // Regular case - wrap in a paragraph
+    return <p className={cn("mb-4 leading-7", className)}>{children}</p>;
+  },
   ul: ({
     children,
     className,
@@ -200,7 +216,7 @@ export const MDXComponents = {
   }) => (
     <blockquote
       className={cn(
-        "mb-4 border-l-4 border-muted pl-4 italic text-muted-foreground",
+        "mb-4 border-l-4 border-muted pl-4 italic text-foreground",
         className
       )}
     >

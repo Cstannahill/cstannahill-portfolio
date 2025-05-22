@@ -21,7 +21,7 @@ const HMTechnicalSkills = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-foreground mb-4">
               Extensive experience building dynamic and responsive front-end
               applications, including advanced state management, reusable
               components, and custom hooks. From interactive dashboards to
@@ -59,7 +59,7 @@ const HMTechnicalSkills = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-foreground">
               Strong expertise in developing robust back-end systems, crafting
               APIs with ASP.NET, integrating Entity Framework for efficient
               database management, and implementing modular and scalable
@@ -77,7 +77,7 @@ const HMTechnicalSkills = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-foreground mb-4">
               Skilled in writing efficient SQL queries and stored procedures for
               data analysis, reporting, and application integration. Designed
               normalized databases and optimized performance for large datasets.

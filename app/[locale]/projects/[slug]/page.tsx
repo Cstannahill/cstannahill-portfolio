@@ -60,7 +60,7 @@ export default async function ProjectPage({
         {/* Back Button */}
         <Link
           href={`/${locale}/projects`}
-          className="mb-8 flex items-center text-sm text-muted-foreground hover:text-primary"
+          className="mb-8 flex items-center text-sm text-foreground hover:text-primary"
         >
           <ChevronLeft className="mr-1 h-4 w-4" />
           Back to Projects
@@ -72,7 +72,7 @@ export default async function ProjectPage({
             {metadata.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-muted-foreground">
+          <div className="flex flex-wrap items-center gap-4 text-foreground">
             <time
               dateTime={metadata.publishedAt || metadata.date}
               className="text-sm"

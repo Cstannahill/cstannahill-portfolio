@@ -43,9 +43,7 @@ export function SummaryTable({ items, title }: SummaryTableProps) {
               >
                 <TableCell className="font-medium">{item.category}</TableCell>
                 <TableCell className="font-medium">{item.rank}</TableCell>
-                <TableCell className="text-muted-foreground">
-                  {item.notes}
-                </TableCell>
+                <TableCell className="text-foreground">{item.notes}</TableCell>
               </TableRow>
             ))}
           </TableBody>

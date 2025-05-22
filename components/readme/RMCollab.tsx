@@ -10,7 +10,7 @@ const RMCollab = () => {
         <span className="absolute -bottom-1 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-accent-light/50 to-transparent"></span>
       </h2>
       <p className="mb-4 text-accent-light font-medium">I'm always keen to:</p>
-      <ul className="space-y-4 text-muted-foreground">
+      <ul className="space-y-4 text-foreground">
         <li className="flex items-start">
           <div className="mr-2 mt-1 text-primary">▸</div>
           <div>

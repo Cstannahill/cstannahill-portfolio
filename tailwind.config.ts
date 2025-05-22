@@ -1,12 +1,13 @@
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: "class", // Enable class-based dark mode toggling
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx,js,jsx}",
+    "./components/**/*.{ts,tsx,js,jsx}",
+    "./app/**/*.{ts,tsx,js,jsx}",
+    "./src/**/*.{ts,tsx,js,jsx}",
   ],
   theme: {
     container: {
@@ -18,70 +19,73 @@ const config: Config = {
     },
     extend: {
       colors: {
-        border: "#3f3f46",
-        input: "#3f3f46",
-        ring: "#06b6d4", // cyan-500
-        background: "#1d1916",
-        foreground: "#ffffff",
+        // Custom color palette mapped to CSS variables (see globals.css)
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         primary: {
-          DEFAULT: "#06b6d4", // cyan-500
-          foreground: "#ffffff",
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
         },
-        // Modern accent colors
-        accent: {
-          DEFAULT: "#0ea5e9", // sky-500 - main accent
-          light: "#38bdf8", // sky-400 - lighter variant
-          dark: "#0284c7", // sky-600 - darker variant
-          foreground: "#ffffff",
-        },
-        // Silver palette for subtle elements
-        silver: {
-          DEFAULT: "#94a3b8", // slate-400
-          light: "#e2e8f0", // slate-200
-          dark: "#475569", // slate-600
-        },
-        // Gold accents for highlights and special elements
-        gold: {
-          DEFAULT: "#eab308", // amber-500
-          light: "#fcd34d", // amber-300
-          dark: "#b45309", // amber-700
-        },
-        // Teal as a complementary color
-        teal: {
-          DEFAULT: "#14b8a6", // teal-500
-          light: "#5eead4", // teal-300
-          dark: "#0f766e", // teal-700
-        },
-        // Purple for contrast elements
-        purple: {
-          DEFAULT: "#8b5cf6", // violet-500
-          light: "#c4b5fd", // violet-300
-          dark: "#6d28d9", // violet-700
-        },
-        // Professional secondary colors
         secondary: {
-          DEFAULT: "#1e293b", // slate-800
-          light: "#334155", // slate-700
-          dark: "#0f172a", // slate-900
-          foreground: "#f1f5f9", // slate-100
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+          light: "var(--secondary-foreground)", // alias for foreground
+          dark: "var(--secondary)", // alias for default
         },
-        // Muted colors
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
+          light: "var(--accent-light)",
+          dark: "var(--accent-dark)",
+        },
+        silver: {
+          DEFAULT: "var(--silver)",
+          light: "var(--silver-light)",
+          dark: "var(--silver-dark)",
+        },
+        gold: {
+          DEFAULT: "var(--gold)",
+          light: "var(--gold-light)",
+          dark: "var(--gold-dark)",
+        },
+        teal: {
+          DEFAULT: "var(--teal)",
+          light: "var(--teal-light)",
+          dark: "var(--teal-dark)",
+        },
+        purple: {
+          DEFAULT: "var(--purple)",
+          light: "var(--purple-light)",
+          dark: "var(--purple-dark)",
+        },
         muted: {
-          DEFAULT: "#334155", // slate-700
-          foreground: "#94a3b8", // slate-400
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
         },
         destructive: {
-          DEFAULT: "#ef4444", // red-500
-          foreground: "#ffffff",
+          DEFAULT: "var(--destructive)",
+          foreground: "#fcfcfc", // always white for contrast
         },
         popover: {
-          DEFAULT: "#1e293b", // slate-800
-          foreground: "#ffffff",
+          DEFAULT: "var(--popover)",
+          foreground: "var(--popover-foreground)",
         },
         card: {
-          DEFAULT: "#1e293b", // slate-800
-          foreground: "#ffffff",
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
         },
+      },
+      text: {
+        foreground: "var(--text-foreground)",
+        muted: "var(--text-muted)",
+        mutedForeground: "var(--text-foreground)",
+        accent: "var(--text-accent)",
+        accentLight: "var(--text-accent-light)",
+        accentDark: "var(--text-accent-dark)",
+        silver: "var(--text-silver)",
       },
       borderRadius: {
         lg: "0.5rem",
@@ -95,7 +99,7 @@ const config: Config = {
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -104,7 +108,14 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    // (Optional) Add other first-party plugins if needed, e.g.:
+    // require("@tailwindcss/forms"),
+    // require("@tailwindcss/container-queries")
+    //
+    // Note: The old `tailwindcss-animate` plugin is deprecated for v4.
+    // Instead, we import animations via CSS (see globals.css).
+  ],
 };
 
 export default config;

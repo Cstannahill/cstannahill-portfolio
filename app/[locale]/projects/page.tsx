@@ -25,7 +25,7 @@ export default async function ProjectsPage({
       </div>
 
       {projects.length === 0 && (
-        <p className="text-center text-muted-foreground">
+        <p className="text-center text-foreground">
           No projects found. Check back soon!
         </p>
       )}

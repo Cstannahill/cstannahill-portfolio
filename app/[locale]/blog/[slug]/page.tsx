@@ -60,7 +60,7 @@ export default async function BlogPostPage({
         {/* Back Button */}
         <Link
           href={`/${locale}/blog`}
-          className="mb-8 flex items-center text-sm text-muted-foreground hover:text-primary"
+          className="mb-8 flex items-center text-sm text-foreground hover:text-primary"
         >
           <ChevronLeft className="mr-1 h-4 w-4" />
           Back to Blog
@@ -68,7 +68,7 @@ export default async function BlogPostPage({
 
         {/* Post Header */}
         <header className="mb-12 text-center">
-          <div className="mb-4 flex justify-center space-x-2 text-sm text-muted-foreground">
+          <div className="mb-4 flex justify-center space-x-2 text-sm text-foreground">
             <time dateTime={metadata.publishedAt || metadata.date}>
               {formatDate(metadata.publishedAt || metadata.date || "")}
             </time>
@@ -89,7 +89,7 @@ export default async function BlogPostPage({
           </h1>
 
           {metadata.excerpt && (
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               {metadata.excerpt}
             </p>
           )}

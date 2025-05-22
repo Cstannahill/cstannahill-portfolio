@@ -28,7 +28,7 @@ export const SectionHeading = ({
         {title}
       </h2>
       {subtitle && (
-        <p className="text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>
+        <p className="text-foreground max-w-2xl mx-auto">{subtitle}</p>
       )}
       {children}
     </div>

@@ -15,7 +15,7 @@ const HMEducation = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">
+            <p className="text-foreground">
               Completed 530+ hours of intensive training in ReactJS, .NET, SQL,
               and modern web development practices.
             </p>

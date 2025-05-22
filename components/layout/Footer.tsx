@@ -12,7 +12,7 @@ export function Footer({ locale }: { locale: string }) {
             <Link href={`/${locale}`} className="text-xl font-bold">
               Christian Tannahill
             </Link>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-foreground">
               Software Developer Portfolio
             </p>
           </div>
@@ -23,7 +23,7 @@ export function Footer({ locale }: { locale: string }) {
               variant="outline"
               size="icon"
               asChild
-              className="text-sm text-muted-foreground hover:text-amber-300 transition-colors"
+              className="text-sm text-foreground hover:text-amber-300 transition-colors"
             >
               <a
                 href="https://github.com/cstannahill"
@@ -65,7 +65,7 @@ export function Footer({ locale }: { locale: string }) {
           </div>
         </div>
 
-        <div className="mt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-8 text-center text-sm text-foreground">
           © {new Date().getFullYear()} Christian Tannahill. All rights reserved.
         </div>
       </div>

@@ -57,7 +57,7 @@ const HMProfessionalExperience = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <ul className="space-y-2 text-sm text-foreground">
                 {exp.responsibilities.map((resp, i) => (
                   <li key={i}>• {resp}</li>
                 ))}

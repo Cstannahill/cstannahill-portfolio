@@ -59,19 +59,17 @@ export function ProjectChallengeCard({
       </div>
 
       <div>
-        <h4 className="font-medium text-md mb-2">Challenge:</h4>
-        <p className="text-sm text-muted-foreground mb-4">{challenge}</p>
-
-        <h4 className="font-medium text-md mb-2">Solution:</h4>
-        <p className="text-sm text-muted-foreground mb-4">{solution}</p>
-
+        {" "}
+        <h3 className="font-medium text-md mb-2">Challenge:</h3>
+        <p className="text-sm text-foreground mb-4">{challenge}</p>
+        <h3 className="font-medium text-md mb-2">Solution:</h3>
+        <p className="text-sm text-foreground mb-4">{solution}</p>
         {impact && (
           <>
-            <h4 className="font-medium text-md mb-2">Impact:</h4>
-            <p className="text-sm text-muted-foreground">{impact}</p>
+            <h3 className="font-medium text-md mb-2">Impact:</h3>
+            <p className="text-sm text-foreground">{impact}</p>
           </>
         )}
-
         {children && <div className="mt-4">{children}</div>}
       </div>
     </div>

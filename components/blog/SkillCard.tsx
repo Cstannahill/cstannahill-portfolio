@@ -65,13 +65,13 @@ export function SkillCard({
         )}
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-muted-foreground mb-2">{summary}</p>
+        <p className="text-sm text-foreground mb-2">{summary}</p>
         {aboveCurve && (
           <div className="mt-2">
             <span className="text-xs font-medium text-primary dark:text-primary/90">
               Above Curve:
             </span>{" "}
-            <span className="text-xs text-muted-foreground">{aboveCurve}</span>
+            <span className="text-xs text-foreground">{aboveCurve}</span>
           </div>
         )}
       </CardContent>

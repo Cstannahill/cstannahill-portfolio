@@ -21,7 +21,10 @@ export default async function LocaleLayout({
   return (
     <>
       <Header locale={locale} />
-      <main className="min-h-[calc(100vh-64px-200px)] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+      <main
+        className="min-h-[calc(100vh-64px-200px)] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full"
+        lang={locale}
+      >
         {children}
       </main>
       <Footer locale={locale} />

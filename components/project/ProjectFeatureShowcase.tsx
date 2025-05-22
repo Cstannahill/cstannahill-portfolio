@@ -56,8 +56,9 @@ export function FeatureItem({
     <li className={cn("flex items-start mb-4", className)}>
       {statusIcons[status]}
       <div>
-        <h4 className="font-medium">{title}</h4>
-        <p className="text-sm text-muted-foreground">{description}</p>
+        {" "}
+        <h3 className="font-medium">{title}</h3>
+        <p className="text-sm text-foreground">{description}</p>
       </div>
     </li>
   );
@@ -85,11 +86,11 @@ export function ProjectFeatureShowcase({
 
   return (
     <div className={cn("my-6", className)}>
-      <h3 className="text-xl font-bold mb-3 flex items-center">
+      {" "}
+      <h2 className="text-xl font-bold mb-3 flex items-center">
         <span className="mr-2">✨</span>
         {title}
-      </h3>
-
+      </h2>
       <Tabs
         defaultValue={groups[0]?.title}
         className="border border-border rounded-lg bg-card/50 dark:bg-card/30 overflow-hidden"

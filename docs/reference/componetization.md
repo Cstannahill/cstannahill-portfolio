@@ -10,7 +10,7 @@
 
 ## File Structure Created
 
-```
+```txt
 components/
 ├── readme/
 │   ├── RMHeader.tsx
@@ -51,7 +51,7 @@ export default async function ReadmePage({
           <span>👋 </span>
           <span className="bg-gradient-to-r...">Hi, I'm Christian...</span>
         </h1>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-lg text-foreground">
           Illinois-based software engineer...
         </p>
       </section>
@@ -178,7 +178,7 @@ const RMCoreStrengths = () => {
           </tbody>
         </table>
       </div>
-      <p className="mt-4 text-muted-foreground">
+      <p className="mt-4 text-foreground">
         I build fast, document thoroughly, and prioritize MVP-first releases so
         projects deliver value early and evolve iteratively.
       </p>

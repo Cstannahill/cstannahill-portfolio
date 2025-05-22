@@ -35,7 +35,7 @@ export default async function BlogPage({
       </div>
 
       {posts.length === 0 ? (
-        <p className="text-center text-muted-foreground mt-12">
+        <p className="text-center text-foreground mt-12">
           No blog posts found. Check back soon!
         </p>
       ) : (
@@ -74,9 +74,7 @@ export default async function BlogPage({
                           />
                         </svg>
                       </div>
-                      <p className="text-sm text-muted-foreground">
-                        No cover image
-                      </p>
+                      <p className="text-sm text-foreground">No cover image</p>
                     </div>
                   </div>
                 )}
@@ -87,7 +85,7 @@ export default async function BlogPage({
                       <div className="flex items-center space-x-2">
                         <time
                           dateTime={post.publishedAt || post.date}
-                          className="text-sm text-muted-foreground"
+                          className="text-sm text-foreground"
                         >
                           {formatDate(post.publishedAt || post.date || "")}
                         </time>
@@ -124,7 +122,7 @@ export default async function BlogPage({
                   </CardHeader>
 
                   <CardContent className="p-0 mb-4">
-                    <p className="text-muted-foreground line-clamp-3">
+                    <p className="text-foreground line-clamp-3">
                       {post.excerpt || post.summary}
                     </p>
                   </CardContent>

@@ -31,14 +31,13 @@ export function ProgressSection({
       <div className="flex justify-between items-center mb-1">
         <div className="font-medium">{category}</div>
         <div className="text-sm font-bold">{score}/100</div>
-      </div>
-
+      </div>{" "}
       <Progress
         value={score}
+        aria-label={`${category} skill level: ${score} out of 100`}
         className="h-2 mb-1 bg-muted/50 dark:bg-muted/30"
       />
-
-      <div className="flex flex-col sm:flex-row text-sm text-muted-foreground">
+      <div className="flex flex-col sm:flex-row text-sm text-foreground">
         {experience && (
           <div className="mr-4">
             <span className="font-medium text-foreground">Experience:</span>{" "}

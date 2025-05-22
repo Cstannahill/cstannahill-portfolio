@@ -71,6 +71,21 @@ export async function getAllPosts(
   }
 }
 
+// Get the latest blog posts
+export async function getLatestPosts(
+  locale: string = "en",
+  count: number = 2
+): Promise<PostMetadata[]> {
+  const allPosts = await getAllPosts(locale);
+  // Map posts to ensure they all have an excerpt
+  const postsWithExcerpt = allPosts.map((post) => ({
+    ...post,
+    // Use summary as fallback or provide a default excerpt if neither exists
+    excerpt: post.excerpt || post.summary || "Read more about this topic...",
+  }));
+  return postsWithExcerpt.slice(0, count);
+}
+
 // Get a single blog post by slug
 export async function getPostBySlug(
   slug: string,

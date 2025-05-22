@@ -37,12 +37,12 @@ export function ProjectCard({
   return (
     <Card className="flex h-full flex-col bg-card hover:bg-secondary/40 overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-accent/5 hover:border-accent/20 group rounded-lg">
       {coverImage && (
-        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-lg">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
           <Image
             src={coverImage}
             alt={cardTitle}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 group-hover:scale-105 "
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -61,9 +61,7 @@ export function ProjectCard({
       </CardHeader>
       {summary && (
         <CardContent className="flex-grow p-4 pt-0">
-          <p className="line-clamp-3 text-sm text-muted-foreground">
-            {summary}
-          </p>
+          <p className="line-clamp-3 text-sm text-foreground">{summary}</p>
 
           {technologies.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
