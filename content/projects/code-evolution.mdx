@@ -1,0 +1,182 @@
+---
+title: "Code Evolution"
+summary: "Enterprise-grade AI-powered code analysis platform for analyzing repositories, detecting patterns, and tracking tech evolution."
+publishedAt: "2025-05-29"
+technologies:
+  - "FastAPI"
+  - "React 19"
+  - "Python 3.11+"
+  - "TypeScript"
+  - "ChromaDB"
+  - "Redis"
+  - "SQLite"
+  - "Ollama"
+  - "LangChain"
+tags: ["AI", "Dev Tooling", "Full Stack", "LLM"]
+coverImage: "/images/projects/code-evolution/repos.png"
+images:
+  - "/images/projects/code-evolution/repos.png"
+  - "/images/projects/code-evolution/model.png"
+  - "/images/projects/code-evolution/multi.png"
+  - "/images/projects/code-evolution/pattern.png"
+  - "/images/projects/code-evolution/stack.png"
+  - "/images/projects/code-evolution/techevo.png"
+  - "/images/projects/code-evolution/analysis.png"
+
+sourceUrl: "https://github.com/Cstannahill/code-evo"
+---
+
+<ProjectTechStack
+  technologies={[
+    { name: "FastAPI", role: "primary" },
+    { name: "React 19", role: "primary" },
+    { name: "Python", role: "secondary" },
+    { name: "TypeScript", role: "secondary" },
+    { name: "ChromaDB", role: "data" },
+    { name: "Redis", role: "data" },
+    { name: "SQLite", role: "data" },
+    { name: "Ollama", role: "ai" },
+    { name: "LangChain", role: "ai" },
+  ]}
+/>
+
+<ProjectTimeline
+  items={[
+    {
+      date: "May 2025",
+      title: "Production Release",
+      description:
+        "Full local AI orchestration, dashboard features, and visualizations deployed.",
+      status: "completed",
+    },
+    {
+      date: "April 2025 - May 2025",
+      title: "AI Integration & Pattern System",
+      description:
+        "Integrated Ollama models with LangChain to support multi-model comparison.",
+      status: "completed",
+    },
+    {
+      date: "April 2025",
+      title: "Initial Architecture",
+      description:
+        "Structured FastAPI backend, React frontend, and core schema designs.",
+      status: "completed",
+    },
+  ]}
+/>
+
+<ProjectFeatureShowcase
+  groups={[
+    {
+      title: "AI-Powered Code Analysis",
+      image: "/images/projects/code-evolution/techevo.png",
+      features: [
+        {
+          title: "Multi-Model AI",
+          description:
+            "Analyzes code using CodeLlama, CodeGemma, GPT-4, and Claude.",
+          status: "implemented",
+        },
+        {
+          title: "Consensus Reports",
+          description:
+            "Benchmarks results across models for accuracy and consistency.",
+          status: "implemented",
+        },
+        {
+          title: "Custom Prompting",
+          description: "Support for custom AI prompts and language domains.",
+          status: "planned",
+        },
+      ],
+    },
+    {
+      title: "Advanced Visualizations",
+      image: "/images/projects/code-evolution/stack.png",
+      features: [
+        {
+          title: "Technology Radar",
+          description: "Maps technology adoption trends and lifecycle.",
+          status: "implemented",
+        },
+        {
+          title: "Pattern Heatmaps & Timelines",
+          description: "Visualize frequency and maturity of coding patterns.",
+          status: "implemented",
+        },
+        {
+          title: "Learning Progression",
+          description: "Graphs developer growth and style evolution.",
+          status: "implemented",
+        },
+      ],
+    },
+  ]}
+/>
+<ProjectFeatureShowcase
+  groups={[
+    {
+      title: "Real-Time Dashboard & Orchestration",
+      image: "/images/projects/code-evolution/analysis.png",
+      features: [
+        {
+          title: "Live Backend Sync",
+          description:
+            "WebSocket-driven status updates from the backend and AI workers keep dashboards responsive and transparent.",
+          status: "implemented",
+        },
+        {
+          title: "Multi-Tab Dashboard",
+          description:
+            "Custom tabs organize analysis into Insights, Tech Radar, Code Quality, and Pattern timelines.",
+          status: "implemented",
+        },
+        {
+          title: "Optimistic Updates",
+          description:
+            "Frontend uses TanStack Query with caching and progressive UX for smoother interactions.",
+          status: "implemented",
+        },
+      ],
+    },
+  ]}
+/>
+
+<ProjectMetrics
+  metrics={[
+    { label: "AI Models Integrated", value: "6+", icon: "🧠", progress: 100 },
+    { label: "Dashboard Components", value: "25+", icon: "📊", progress: 100 },
+    {
+      label: "Lines of Frontend Code",
+      value: "7,800+",
+      icon: "💻",
+      progress: 100,
+    },
+    { label: "Repositories Analyzed", value: "∞", icon: "📁", progress: 90 },
+  ]}
+/>
+
+<ProjectChallengeCard
+  title="Coordinating Multi-Model AI Analysis"
+  challenge="Running multiple large models locally while maintaining performant UX and accurate comparisons."
+  solution="Used Ollama + LangChain to orchestrate local models with isolated prompts and performance benchmarking logic. Integrated loading states and backend job queues to prevent blocking UI."
+  impact="Enabled high-throughput, parallel analysis across models with minimal user friction."
+  difficulty="high"
+  domain="AI / Dev Tools"
+/>
+
+<ProjectChallengeCard
+  title="Designing Effective Developer Visualizations"
+  challenge="Presenting complex analysis results in a way that's actionable and understandable to both individuals and teams."
+  solution="Developed a modular dashboard system with charts like heatmaps, tech radar, and progression timelines using Radix UI, TanStack, and Recharts."
+  impact="Improved insight clarity, helping developers and teams track evolution and refactor intelligently."
+  difficulty="medium"
+  domain="Frontend"
+/>
+
+---
+
+This platform is used to deeply inspect and visualize the evolution of software repositories. It reveals the quality, consistency, and maturity of codebases using modern AI techniques—all running locally or optionally enhanced with GPT/Claude APIs.
+
+From team collaboration insights to anti-pattern detection and skill growth charts, Code Evolution Tracker is ideal for engineers, tech leads, and educators looking to surface hidden stories in source code.
