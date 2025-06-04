@@ -1,0 +1,228 @@
+---
+title: "CodeShift"
+summary: "AI-powered code translation and personalized learning platform to help developers migrate between frameworks and accelerate skill growth."
+publishedAt: "2025-06-03"
+technologies:
+  - "React 18"
+  - "TypeScript"
+  - "Vite"
+  - "FastAPI"
+  - "Tailwind CSS"
+  - "Zustand"
+  - "Monaco Editor"
+  - "PostgreSQL"
+tags: ["AI", "Dev Tooling", "Full Stack", "LLM", "Learning"]
+coverImage: "/images/projects/codeshift/chrome_VMxscobjlw.png"
+images:
+  - "/images/projects/codeshift/chrome_VMxscobjlw.png"
+  - "/images/projects/codeshift/chrome_i8HS4iLFTJ.png"
+  - "/images/projects/codeshift/chrome_wS9X9D7tua.png"
+  - "/images/projects/codeshift/chrome_2qGNBnnbhV.png"
+  - "/images/projects/codeshift/chrome_70dpSLKgNE.png"
+  - "/images/projects/codeshift/chrome_EK51O8Oa1p.png"
+  - "/images/projects/codeshift/chrome_QTfEdIPk4n.png"
+demoUrl: "https://code-shift-gold.vercel.app/"
+sourceUrl: "https://github.com/Cstannahill/CodeShift"
+slug: "codeshift"
+---
+
+CodeShift is a modern, AI-powered platform designed to help developers translate code across frameworks like React, Vue, Next.js, and Angular—while simultaneously building personalized learning paths to deepen their understanding of each technology. It blends practical tooling with smart insights to create a full development and education ecosystem.
+
+---
+
+## 🔧 Technologies
+
+<ProjectTechStack
+  technologies={[
+    { name: "React 18", role: "primary" },
+    { name: "TypeScript", role: "primary" },
+    { name: "Vite", role: "secondary" },
+    { name: "FastAPI", role: "secondary" },
+    { name: "Tailwind CSS" },
+    { name: "Zustand" },
+    { name: "Monaco Editor" },
+    { name: "PostgreSQL" },
+  ]}
+/>
+
+---
+
+## ✨ Key Features
+
+<ProjectFeatureShowcase
+  groups={[
+    {
+      title: "AI Code Translation",
+      image: "/images/projects/codeshift/chrome_i8HS4iLFTJ.png",
+      features: [
+        {
+          title: "Framework-Aware Conversion",
+          description:
+            "Translate code across frameworks like React, Vue, and Next.js with context-aware adjustments.",
+          status: "implemented",
+        },
+        {
+          title: "Syntax Confidence Scoring",
+          description:
+            "Get confidence scores for translation accuracy, with suggestions and warnings.",
+          status: "implemented",
+        },
+        {
+          title: "Live Package Mapping",
+          description:
+            "Maps and recommends framework-specific dependencies for accurate transitions.",
+          status: "implemented",
+        },
+      ],
+    },
+    {
+      title: "Personalized Learning Paths",
+      image: "/images/projects/codeshift/chrome_QTfEdIPk4n.png",
+      features: [
+        {
+          title: "AI-Generated Curricula",
+          description:
+            "Custom lessons are built using your activity data, experience, and goals.",
+          status: "implemented",
+        },
+        {
+          title: "Progress-Aware Paths",
+          description:
+            "Adaptive lessons track progress and tailor difficulty in real time.",
+          status: "implemented",
+        },
+        {
+          title: "Time + Style Matching",
+          description:
+            "Learning paths adapt to your preferred time commitment and approach.",
+          status: "implemented",
+        },
+      ],
+    },
+    {
+      title: "Skill Analytics & Profiling",
+      image: "/images/projects/codeshift/chrome_wS9X9D7tua.png",
+      features: [
+        {
+          title: "Skill Confidence Scores",
+          description:
+            "Assess your proficiency per framework or language based on repo data.",
+          status: "implemented",
+        },
+        {
+          title: "Strength Mapping",
+          description:
+            "Extract and showcase areas of strength like 'API integration' or 'state management'.",
+          status: "implemented",
+        },
+        {
+          title: "Achievements & Milestones",
+          description:
+            "Gamified tracking of key skill-building events and learning streaks.",
+          status: "implemented",
+        },
+      ],
+    },
+  ]}
+/>
+
+---
+
+## 🧠 Project Timeline
+
+<ProjectTimeline
+  items={[
+    {
+      date: "May 24, 2025",
+      title: "Initial Concept",
+      description:
+        "Began outlining the project concept, target audience, and technical feasibility of AI-driven code translation and learning.",
+      status: "completed",
+    },
+    {
+      date: "May 31, 2025",
+      title: "Documentation Planning",
+      description:
+        "Formalized documentation structure and content goals, laying the foundation for README and tech architecture planning.",
+      status: "completed",
+    },
+    {
+      date: "June 2, 2025",
+      title: "Frontend Development Start",
+      description:
+        "Started development of the React/Vite frontend, building out layout structure, component foundation, and mock logic.",
+      status: "completed",
+    },
+    {
+      date: "June 4, 2025",
+      title: "Frontend Demo Complete",
+      description:
+        "Completed full frontend implementation with mock data, AI interaction flow, and polished UI using Zustand, Tailwind, and Monaco.",
+      status: "completed",
+    },
+    {
+      date: "June 2025",
+      title: "Backend Scaffolding",
+      description:
+        "Started building backend APIs using FastAPI, PostgreSQL, and planning for OpenAI integration.",
+      status: "in-progress",
+    },
+    {
+      date: "TBD",
+      title: "Backend Completion",
+      description:
+        "Planned integration of authentication, AI inference APIs, and database services for live translation and learning analytics.",
+      status: "pending",
+    },
+  ]}
+/>
+
+---
+
+## 🧩 Core Challenges
+
+<ProjectChallengeCard
+  title="Framework-Aware Code Translation"
+  challenge="Traditional syntax-based converters fail to capture framework patterns like hooks, routing, or state stores."
+  solution="Implemented a translation engine that factors in project context, package mappings, and user-intended logic using AI-backed parsing."
+  impact="Boosted translation confidence, improved accuracy, and enabled smoother onboarding for learning paths."
+  difficulty="high"
+  domain="AI / Developer Tooling"
+/>
+
+<ProjectChallengeCard
+  title="Personalized Curriculum Design"
+  challenge="Generic courses often mismatch developer experience or learning style, resulting in low engagement."
+  solution="Designed an adaptive engine that creates paths based on user's repo data, goals, and skill gaps."
+  impact="Increased engagement, improved learning efficiency, and reduced drop-off."
+  difficulty="medium"
+  domain="Learning Systems"
+/>
+
+---
+
+## 📸 Gallery
+
+![Landing Page](/images/projects/codeshift/chrome_70dpSLKgNE.png)
+![Learning Path Overview](/images/projects/codeshift/chrome_QTfEdIPk4n.png)
+![Translation Engine Output](/images/projects/codeshift/chrome_i8HS4iLFTJ.png)
+![Skill Profile + Confidence](/images/projects/codeshift/chrome_wS9X9D7tua.png)
+![Repository Analysis](/images/projects/codeshift/chrome_2qGNBnnbhV.png)
+![Curriculum Overview](/images/projects/codeshift/chrome_EK51O8Oa1p.png)
+![Create Learning Path Modal](/images/projects/codeshift/chrome_VMxscobjlw.png)
+
+---
+
+## 🧪 Status
+
+- ✅ **Frontend**: Fully functional with mock data, production-ready UX
+- 🚧 **Backend**: Core structure in place, API development underway
+- 🌐 **Demo**: Localhost preview available
+- 📦 **Tech Stack**: Vite, React 18, Zustand, Tailwind, FastAPI (WIP), PostgreSQL (WIP)
+
+---
+
+## 🔗 Links
+
+- [Source Code](https://github.com/Cstannahill/CodeShift)
+- [Live Demo](https://code-shift-gold.vercel.app/)
