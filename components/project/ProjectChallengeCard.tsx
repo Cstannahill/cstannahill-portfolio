@@ -35,8 +35,8 @@ export function ProjectChallengeCard({
   };
 
   return (
-    <div className={cn("p-4 my-6 border rounded-lg bg-card/30", className)}>
-      <div className="flex items-center gap-2 font-medium mb-3">
+    <section className={cn("p-4 my-6 border rounded-lg bg-card/30", className)}>
+      <header className="flex items-center gap-2 font-medium mb-3">
         <span>{icon}</span>
         <h3 className="text-xl font-bold">{title}</h3>
         <div className="flex-grow"></div>
@@ -56,22 +56,25 @@ export function ProjectChallengeCard({
             {domain}
           </Badge>
         )}
-      </div>
+      </header>
 
-      <div>
-        {" "}
-        <h3 className="font-medium text-md mb-2">Challenge:</h3>
-        <p className="text-sm text-foreground mb-4">{challenge}</p>
-        <h3 className="font-medium text-md mb-2">Solution:</h3>
-        <p className="text-sm text-foreground mb-4">{solution}</p>
+      <div className="space-y-4">
+        <div>
+          <h4 className="font-medium text-md mb-2">Challenge:</h4>
+          <p className="text-sm text-foreground">{challenge}</p>
+        </div>
+        <div>
+          <h4 className="font-medium text-md mb-2">Solution:</h4>
+          <p className="text-sm text-foreground">{solution}</p>
+        </div>
         {impact && (
-          <>
-            <h3 className="font-medium text-md mb-2">Impact:</h3>
+          <div>
+            <h4 className="font-medium text-md mb-2">Impact:</h4>
             <p className="text-sm text-foreground">{impact}</p>
-          </>
+          </div>
         )}
         {children && <div className="mt-4">{children}</div>}
       </div>
-    </div>
+    </section>
   );
 }

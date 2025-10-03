@@ -25,6 +25,13 @@ import { SkillCard } from "@/components/blog/SkillCard";
 import { SkillCategory } from "@/components/blog/SkillCategory";
 import { SummaryTable } from "@/components/blog/SummaryTable";
 
+// Import shared components
+import CodeBlock from "@/components/shared/CodeBlock";
+import CodeTabs, { CodeTab } from "@/components/shared/CodeTabs";
+import { MarkdownViewer } from "@/components/shared/MarkdownViewer";
+import CopyPageButton from "@/components/shared/CopyPageButton";
+import { DataTable } from "@/components/shared/DataTable";
+
 interface HeadingProps {
   children: ReactNode;
   id?: string;
@@ -151,6 +158,12 @@ export const MDXComponents = {
   SkillCard,
   SkillCategory,
   SummaryTable,
+  CodeBlock,
+  CodeTabs,
+  CodeTab,
+  MarkdownViewer,
+  CopyPageButton,
+  DataTable,
 
   // HTML elements
   h1: H1,
@@ -246,16 +259,10 @@ export const MDXComponents = {
   }: {
     children: ReactNode;
     className?: string;
-  }) => (
-    <pre
-      className={cn(
-        "mb-4 overflow-x-auto rounded-lg bg-secondary p-4 font-mono text-sm",
-        className
-      )}
-    >
-      {children}
-    </pre>
-  ),
+  }) => {
+    // Use CodeBlock component for syntax highlighting
+    return <CodeBlock className={className}>{children}</CodeBlock>;
+  },
   table: ({
     children,
     className,
