@@ -73,16 +73,43 @@ interface FeatureGroupProps {
 
 interface ProjectFeatureShowcaseProps {
   title?: string;
-  groups: FeatureGroupProps[];
+  groups?: FeatureGroupProps[];
+  // Legacy prop shape used in older MDX files
+  features?: Array<{
+    title: string;
+    description?: string;
+    icon?: string;
+    highlights?: string[];
+    image?: string;
+  }>;
   className?: string;
 }
 
 export function ProjectFeatureShowcase({
   title = "Key Features",
   groups,
+  features,
   className,
 }: ProjectFeatureShowcaseProps) {
-  const [activeTab, setActiveTab] = useState(groups[0]?.title || "");
+  // Normalize incoming props: prefer `groups`, fall back to legacy `features` shape
+  const normalizedGroups: FeatureGroupProps[] =
+    groups && groups.length > 0
+      ? groups
+      : (features || []).map((f) => ({
+        title: f.title,
+        image: f.image,
+        features: (f.highlights || []).map((h) => ({
+          title: h,
+          description: f.description || "",
+        })),
+      }));
+
+  // Guard: if there are no groups to show, render nothing
+  if (!normalizedGroups || normalizedGroups.length === 0) return null;
+
+  const [activeTab, setActiveTab] = useState(
+    normalizedGroups[0]?.title || ""
+  );
 
   return (
     <div className={cn("my-6", className)}>
@@ -92,18 +119,18 @@ export function ProjectFeatureShowcase({
         {title}
       </h2>
       <Tabs
-        defaultValue={groups[0]?.title}
+        defaultValue={normalizedGroups[0]?.title}
         className="border border-border rounded-lg bg-card/50 dark:bg-card/30 overflow-hidden"
         onValueChange={setActiveTab}
       >
         <TabsList className="w-full border-b border-border bg-muted/50 rounded-t-lg rounded-b-none h-auto p-0 flex flex-wrap">
-          {groups.map((group) => (
+          {normalizedGroups.map((group) => (
             <TabsTrigger
               key={group.title}
               value={group.title}
               className={cn(
                 "data-[state=active]:bg-background py-3 px-4 flex-grow",
-                groups.length > 3
+                normalizedGroups.length > 3
                   ? "flex-basis-1/2 md:flex-basis-1/3 lg:flex-basis-1/4"
                   : ""
               )}
@@ -113,7 +140,7 @@ export function ProjectFeatureShowcase({
           ))}
         </TabsList>
 
-        {groups.map((group) => (
+        {normalizedGroups.map((group) => (
           <TabsContent key={group.title} value={group.title} className="m-0">
             <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>

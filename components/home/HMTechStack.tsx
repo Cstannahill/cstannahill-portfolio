@@ -6,12 +6,12 @@ const HMTechStack = () => {
   const techCategories = [
     {
       name: "Frontend",
-      tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "ShadCN UI"],
+      tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "ShadCN UI", "Vite", "Redux", "Zustand"],
       color: "teal",
     },
     {
       name: "Backend",
-      tech: ["Node.js", ".NET Core", "Express", "ASP.NET", "REST APIs"],
+      tech: ["Node.js", "Next.js", "FastAPI", ".NET Core", "Express", "ASP.NET", "REST APIs"],
       color: "purple",
     },
     {
@@ -27,8 +27,13 @@ const HMTechStack = () => {
     },
     {
       name: "DevOps & Tools",
-      tech: ["Git", "GitHub Actions", "Docker", "Azure", "VS Code"],
+      tech: ["Git", "GitHub Actions", "Docker", "Azure", "VS Code", "Cursor", "Claude", "Copilot", "Postman"],
       color: "silver",
+    },
+    {
+      name: "AI & ML",
+      tech: ["TensorFlow", "PyTorch", "OpenAI", "Anthropic", "Ollama", "Langchain", "Hugging Face / Transformers", "Scikit-learn", "Chromadb"],
+      color: "outline",
     },
   ];
 

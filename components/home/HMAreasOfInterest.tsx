@@ -12,6 +12,7 @@ const HMAreasOfInterest = () => {
       topics: [
         "Large Language Models",
         "AI Agents",
+        "RAG (Retrieval-Augmented Generation)",
         "Prompt Engineering",
         "Vector Databases",
         "Fine-tuning Models",

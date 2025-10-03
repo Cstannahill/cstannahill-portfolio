@@ -29,7 +29,12 @@ export type ProjectMetadata = {
   images?: string[];
   demoUrl?: string;
   sourceUrl?: string;
+  siteUrl?: string;
+  docsUrl?: string;
+  npmUrl?: string;
+  pypiUrl?: string;
   ogImage?: string;
+  featured?: boolean;
 };
 
 const postsDirectory = path.join(process.cwd(), "content/blog");
@@ -166,5 +171,44 @@ export async function getFeaturedProjects(
   count: number = 3
 ): Promise<ProjectMetadata[]> {
   const allProjects = await getAllProjects(locale);
-  return allProjects.slice(0, count);
+
+  // Filter projects that are explicitly marked as featured
+  const featuredProjects = allProjects.filter(
+    (project) => project.featured === true
+  );
+
+  // If we have enough featured projects, return them sorted by date
+  if (featuredProjects.length >= count) {
+    return featuredProjects
+      .sort((a, b) => {
+        const dateA = new Date(a.publishedAt || a.date || 0);
+        const dateB = new Date(b.publishedAt || b.date || 0);
+        return dateB.getTime() - dateA.getTime();
+      })
+      .slice(0, count);
+  }
+
+  // If we don't have enough featured projects, fill with projects that are NOT explicitly set to false
+  // This includes projects with featured: undefined (default) but excludes featured: false
+  const nonFeaturedProjects = allProjects.filter(
+    (project) => project.featured !== true && project.featured !== false
+  );
+
+  // Combine featured projects (sorted by date) with non-featured projects (sorted by date)
+  const combinedProjects = [
+    ...featuredProjects.sort((a, b) => {
+      const dateA = new Date(a.publishedAt || a.date || 0);
+      const dateB = new Date(b.publishedAt || b.date || 0);
+      return dateB.getTime() - dateA.getTime();
+    }),
+    ...nonFeaturedProjects
+      .sort((a, b) => {
+        const dateA = new Date(a.publishedAt || a.date || 0);
+        const dateB = new Date(b.publishedAt || b.date || 0);
+        return dateB.getTime() - dateA.getTime();
+      })
+      .slice(0, count - featuredProjects.length),
+  ];
+
+  return combinedProjects;
 }
