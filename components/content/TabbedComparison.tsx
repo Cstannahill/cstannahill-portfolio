@@ -25,6 +25,14 @@ const MODEL_ORDER = [
     "DeepSeek V3.1 (via OpenRouter)",
 ];
 
+const MODEL_LABELS: Record<string, string> = {
+  "Anthropic Claude Sonnet 4.5": "Claude Sonnet 4.5",
+  "Anthropic Claude Haiku 3.5": "Claude Haiku 3.5",
+  "OpenAI GPT-5 Nano": "GPT-5 Nano",
+  "OpenAI GPT-5 Mini": "GPT-5 Mini",
+  "DeepSeek V3.1 (via OpenRouter)": "DeepSeek V3.1",
+};
+
 interface SectionProps {
     title: string;
     content?: string | string[] | undefined;
@@ -87,7 +95,7 @@ export const TabbedComparison: React.FC<TabbedComparisonProps> = ({
                             aria-controls={`tab-panel-${idx}`}
                             id={`tab-${idx}`}
                         >
-                            {model}
+                            {MODEL_LABELS[model] ?? model}
                         </button>
                     );
                 })}
