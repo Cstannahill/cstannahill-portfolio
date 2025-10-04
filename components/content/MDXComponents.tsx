@@ -31,6 +31,7 @@ import CodeTabs, { CodeTab } from "@/components/shared/CodeTabs";
 import { MarkdownViewer } from "@/components/shared/MarkdownViewer";
 import CopyPageButton from "@/components/shared/CopyPageButton";
 import { DataTable } from "@/components/shared/DataTable";
+import TabbedComparison from "@/components/content/TabbedComparison";
 
 interface HeadingProps {
   children: ReactNode;
@@ -164,6 +165,7 @@ export const MDXComponents = {
   MarkdownViewer,
   CopyPageButton,
   DataTable,
+  TabbedComparison,
 
   // HTML elements
   h1: H1,
