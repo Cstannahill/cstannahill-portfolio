@@ -16,8 +16,11 @@ export const SectionHeading = ({
   children,
   gradient = false,
 }: SectionHeadingProps) => {
+  const alignmentClass = alignment === "left" ? "text-left" : "text-center";
+  const subtitleAlignment =
+    alignment === "left" ? "text-foreground max-w-2xl" : "text-foreground max-w-2xl mx-auto";
   return (
-    <div className={`mb-8 text-${alignment}`}>
+    <div className={`mb-8 ${alignmentClass}`}>
       <h2
         className={`text-3xl font-bold ${
           gradient
@@ -28,7 +31,7 @@ export const SectionHeading = ({
         {title}
       </h2>
       {subtitle && (
-        <p className="text-foreground max-w-2xl mx-auto">{subtitle}</p>
+        <p className={subtitleAlignment}>{subtitle}</p>
       )}
       {children}
     </div>

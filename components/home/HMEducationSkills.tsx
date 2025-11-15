@@ -14,13 +14,13 @@ const HMEducationSkills = () => {
   ];
 
   const certifications = [
-    {
-      name: "Microsoft Certified: Azure Developer Associate",
-      issuer: "Microsoft",
-      year: "2024",
-      status: "In progress",
-    },
-    // Add more certifications as they become available
+    //   {
+    //     name: "Microsoft Certified: Azure Developer Associate",
+    //     issuer: "Microsoft",
+    //     year: "2024",
+    //     status: "In progress",
+    //   },
+    //   // Add more certifications as they become available
   ];
 
   return (
@@ -62,7 +62,7 @@ const HMEducationSkills = () => {
             </Card>
 
             {/* Microsoft Certification */}
-            {certifications.length > 0 && (
+            {false && (
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
                   <Card key={index} className="border-accent/10">
@@ -107,7 +107,7 @@ const HMEducationSkills = () => {
             <Card className="border-accent/10">
               <div className="bg-secondary/30 rounded-lg px-4">
                 <h3 className="font-semibold mb-2 flex items-center">
-                  <span className="text-gradient bg-gradient-to-r from-teal via-accent to-purple rounded-lg p-1">
+                  <span className="text-gradient bg-gradient-to-r from-stone-800 via-cyan-800 to-zinc-700 border border-zinc-400 rounded-lg p-1">
                     Ongoing Learning
                   </span>
                 </h3>

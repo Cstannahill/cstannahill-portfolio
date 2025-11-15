@@ -26,3 +26,41 @@
   opacity: calc(--value(integer) * 1%);
   opacity: --value(--opacity- *);
 }
+
+.hero-pulse {
+  animation: heroPulse 5s ease-in-out infinite;
+  filter: blur(20px);
+}
+
+.hero-glow {
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.35);
+}
+
+.scroll-indicator {
+  animation: scrollBounce 3s ease-in-out infinite;
+}
+
+@keyframes heroPulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}

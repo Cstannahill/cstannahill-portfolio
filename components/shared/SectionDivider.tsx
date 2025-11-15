@@ -1,6 +1,6 @@
 const SectionDivider = () => {
   return (
-    <div className="relative py-4">
+    <div className="relative py-1">
       <div className="absolute inset-0 flex items-center">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
       </div>

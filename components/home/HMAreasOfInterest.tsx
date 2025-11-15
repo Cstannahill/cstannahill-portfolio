@@ -3,8 +3,22 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+type InterestColor = "purple" | "teal" | "gold" | "silver";
+
+const accentBarClasses: Record<InterestColor, string> = {
+  purple: "bg-purple",
+  teal: "bg-teal",
+  gold: "bg-gold",
+  silver: "bg-silver",
+};
+
 const HMAreasOfInterest = () => {
-  const interests = [
+  const interests: Array<{
+    area: string;
+    description: string;
+    topics: string[];
+    color: InterestColor;
+  }> = [
     {
       area: "AI & Machine Learning",
       description:
@@ -46,15 +60,15 @@ const HMAreasOfInterest = () => {
       color: "gold",
     },
     {
-      area: "Web3 & Blockchain",
+      area: "Data Analytics",
       description:
-        "Exploring the intersection of traditional web development and decentralized applications.",
+        "Designing ETL pipelines and aggregation layers that keep dashboards and AI models fed with reliable data.",
       topics: [
-        "Smart Contracts",
-        "dApps",
-        "Tokenization",
-        "Layer 2 Solutions",
-        "DeFi",
+        "ETL Pipelines",
+        "Data Aggregation",
+        "Real-time Ingestion",
+        "Analytics Schemas",
+        "Operational Dashboards",
       ],
       color: "silver",
     },
@@ -75,7 +89,7 @@ const HMAreasOfInterest = () => {
               key={index}
               className="border-accent/10 hover:border-accent/30 transition-all duration-300 overflow-hidden"
             >
-              <div className={`h-1 bg-${interest.color}`}></div>
+              <div className={`h-1 ${accentBarClasses[interest.color]}`}></div>
               <CardContent className="">
                 <h3 className="text-xl font-bold mb-2">{interest.area}</h3>
                 <p className="text-foreground mb-4 text-sm">
@@ -83,11 +97,7 @@ const HMAreasOfInterest = () => {
                 </p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {interest.topics.map((topic, idx) => (
-                    <Badge
-                      key={idx}
-                      variant={interest.color as any}
-                      className="text-xs"
-                    >
+                    <Badge key={idx} variant={interest.color} className="text-xs">
                       {topic}
                     </Badge>
                   ))}

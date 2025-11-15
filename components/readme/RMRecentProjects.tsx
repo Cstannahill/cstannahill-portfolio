@@ -56,7 +56,7 @@ const RMRecentProjects = () => {
                 API
               </td>
               <td className="p-4">
-                REST API that performs on‑the‑fly image edits (resize, crop,
+                REST API that performs on-the-fly image edits (resize, crop,
                 filters, convert).
               </td>
             </tr>
@@ -111,7 +111,7 @@ const RMRecentProjects = () => {
               </td>
               <td className="p-4">
                 <span className="text-accent-light">React</span>, .NET API,
-                Drag‑and‑Drop
+                Drag-and-Drop
               </td>
               <td className="p-4">
                 Visual project planner with real-time task and feature mapping.

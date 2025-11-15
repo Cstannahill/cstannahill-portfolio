@@ -12,17 +12,19 @@ const badgeVariants = cva(
         default:
           "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+          "border-blue bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
         destructive:
           "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
-        teal: "border-teal/30 bg-teal/10 text-teal-light [a&]:hover:bg-teal/20",
-        gold: "border-gold/30 bg-gold/10 text-gold-light [a&]:hover:bg-gold/20",
+        teal:
+          "border-teal-300 bg-teal-700  text-stone-100 [a&]:hover:bg-teal/40 [a&]:hover:text-white",
+        gold:
+          "border-amber-300 bg-amber-600  text-stone-900 [a&]:hover:bg-gold/35 [a&]:hover:text-white",
         purple:
-          "border-purple/30 bg-purple/10 text-purple-light [a&]:hover:bg-purple/20",
+          "border-purple-300 bg-purple-600 text-white [a&]:hover:bg-purple/40 [a&]:hover:text-white",
         silver:
-          "border-silver/30 bg-silver/10 text-silver-light [a&]:hover:bg-silver/20",
+          "border-stone-50 bg-stone-400 text-stone-900 [a&]:hover:bg-silver/50",
       },
     },
     defaultVariants: {

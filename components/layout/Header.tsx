@@ -29,12 +29,15 @@ import { Button } from "@/components/ui/button";
  */
 export function Header({ locale }: { locale: string }) {
   const pathname = usePathname();
+  const normalizePath = (value: string) =>
+    value.length > 1 && value.endsWith("/") ? value.replace(/\/+$/, "") : value;
+  const baseLocalePath = normalizePath(`/${locale}`);
 
   const links = [
     { href: `/${locale}`, label: "Home", icon: <Home className="h-4 w-4" /> },
     {
-      href: `/${locale}/readme`,
-      label: "README",
+      href: `/${locale}/resume`,
+      label: "Resume",
       icon: <BookOpen className="h-4 w-4" />,
     },
     {
@@ -67,7 +70,14 @@ export function Header({ locale }: { locale: string }) {
     },
   ];
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => {
+    const target = normalizePath(path);
+    const current = normalizePath(pathname || "/");
+    if (target === baseLocalePath) {
+      return current === target;
+    }
+    return current === target || current.startsWith(`${target}/`);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-800/30 bg-header/95 backdrop-blur supports-[backdrop-filter]:bg-[#0d1217]/80 shadow-md shadow-slate-900/5">
@@ -110,6 +120,7 @@ export function Header({ locale }: { locale: string }) {
                   <Link
                     key={link.href}
                     href={link.href}
+                    aria-current={isActive(link.href) ? "page" : undefined}
                     className={`text-lg font-medium px-3 py-2 rounded-md transition-colors flex items-center gap-3 ${
                       isActive(link.href)
                         ? "bg-[#1a2432] text-cyan-300"
@@ -156,6 +167,7 @@ export function Header({ locale }: { locale: string }) {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
                 className={`px-4 py-2 flex items-center gap-2 transition-all ${
                   isActive(link.href)
                     ? "bg-slate-900/70 text-cyan-300"
@@ -194,10 +206,17 @@ export function Header({ locale }: { locale: string }) {
           <Button
             variant="outline"
             size="sm"
+            asChild
             className="ml-2 rounded-md border-cyan-500/30 bg-slate-900/20 text-cyan-300 hover:bg-slate-900/40 hover:border-cyan-500/50 transition-all flex items-center gap-2"
           >
-            <Calendar className="h-4 w-4" />
-            <span>Schedule a meeting</span>
+            <a
+              href="https://calendar.app.google/JepYNPUuk6d9eLoDA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Calendar className="h-4 w-4" />
+              <span>Schedule a meeting</span>
+            </a>
           </Button>
         </div>
       </div>

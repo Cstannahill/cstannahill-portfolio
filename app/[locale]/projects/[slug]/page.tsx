@@ -12,6 +12,7 @@ import { formatDate } from "@/lib/utils";
 import { MDXContent } from "@/components/content/MDXContent";
 import { Badge } from "@/components/ui/badge";
 import { ChevronLeft, ExternalLink, Github } from "lucide-react";
+import { motion } from "motion/react";
 
 // Generate metadata for the page
 export async function generateMetadata({
@@ -115,9 +116,12 @@ export default async function ProjectPage({
 
         {/* Project Header */}
         <header className="mb-8">
-          <h1 className="mb-4 text-4xl font-bold md:text-5xl">
+          <motion.h1
+            layoutId={`project-title-${metadata.slug}`}
+            className="mb-4 text-4xl font-bold md:text-5xl"
+          >
             {metadata.title}
-          </h1>
+          </motion.h1>
 
           <div className="flex flex-wrap items-center gap-4 text-foreground">
             <time

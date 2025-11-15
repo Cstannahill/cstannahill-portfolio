@@ -51,7 +51,7 @@ const RMCoreStrengths = () => {
               <td className="p-4 font-bold text-primary">Interests</td>
               <td className="p-4">
                 AI/ML (OpenAI, Ollama, Hugging Face), Blockchain
-                (Synapse‑Chain), Dev Tools, Game Dev (Unity C#), Crypto & DeFi
+                (Synapse-Chain), Dev Tools, Game Dev (Unity C#), Crypto & DeFi
               </td>
             </tr>
           </tbody>

@@ -1,4 +1,6 @@
 // components/home/HMProfessionalExperience.tsx
+import Image from "next/image";
+import BulletIcon from "@/app/assets/lists/24.svg";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,30 +8,33 @@ import { Badge } from "@/components/ui/badge";
 const HMProfessionalExperience = () => {
   const experiences = [
     {
-      title: "Director of Maintenance",
-      company: "Evergreen Village - Heritage Operations",
-      period: "June 2024 - March 2025",
+      title: "Independent Software Engineer",
+      company: "Self-Employed - Remote",
+      period: "Apr 2024 - Present",
       responsibilities: [
-        "Designed and created a custom housekeeping management application to replace written records",
-        "Manage scheduling, budgeting, and daily operations for maintenance and housekeeping departments",
+        "Ship TrendDev and LegisTrack from concept to production, delivering AI job analytics, resume intelligence, and legislative summarization that process 500+ postings and bills per day.",
+        "Design AWS-first serverless architectures (Lambda, EventBridge, DynamoDB, S3) paired with Next.js 15, Prisma, and Inngest for resilient scheduling, automation, and background work.",
+        "Integrate AI workflows with OpenAI, Anthropic, and Bedrock to provide resume scoring, salary insights, and policy summaries at cents-per-request scale.",
       ],
     },
     {
       title: "Programmer",
-      company: "AnswerNet",
-      period: "2022 - 2024",
+      company: "AnswerNet - Remote",
+      period: "Nov 2022 - Apr 2024",
       responsibilities: [
-        "Developed and implemented .NET APIs for OPID status callback registration and updates",
-        "Created automated data import pipelines for Excel, CSV, and tab-delimited files",
+        "Maintained .NET APIs that handled OPID status callbacks and legacy VB integrations, reducing manual interventions across support teams.",
+        "Automated ETL flows ingesting Excel/CSV/tab-delimited data, orchestrating SFTP transfers, and surfacing results via SSRS dashboards.",
+        "Created dynamic CallScripter workflows and REST client tooling that accelerated campaign configuration and troubleshooting.",
       ],
     },
     {
       title: "Full Stack Software Engineer",
-      company: "Carte",
-      period: "2022",
+      company: "Carte - Remote",
+      period: "Aug 2022 - Nov 2022",
       responsibilities: [
-        "Architected database tables, APIs, and responsive views for analytics and menu customization",
-        "Integrated Stripe for secure payment processing",
+        "Built the analytics API layer end to end: controllers, services, and data-access logic aggregating revenue, orders, and menu telemetry.",
+        "Developed mobile-first React ordering flows plus Stripe checkout, ensuring data parity between customer, kitchen, and admin views.",
+        "Authored optimized T-SQL stored procedures (FOR JSON) to ship pre-shaped analytics payloads and keep API responses sub-second.",
       ],
     },
   ];
@@ -43,10 +48,7 @@ const HMProfessionalExperience = () => {
 
       <div className="space-y-6">
         {experiences.map((exp, index) => (
-          <Card
-            key={index}
-            className="hover:border-accent/20 transition-colors"
-          >
+          <Card key={index} className="hover:border-accent/20 transition-colors">
             <CardHeader>
               <div className="flex justify-between items-start">
                 <div>
@@ -57,9 +59,19 @@ const HMProfessionalExperience = () => {
               </div>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2 text-sm text-foreground">
+              <ul className="bullet-list text-sm text-foreground">
                 {exp.responsibilities.map((resp, i) => (
-                  <li key={i}>• {resp}</li>
+                  <li key={i}>
+                    <span className="bullet">
+                      <Image
+                        src={BulletIcon}
+                        alt="List bullet"
+                        width={20}
+                        height={20}
+                      />
+                    </span>
+                    <span className="text">{resp}</span>
+                  </li>
                 ))}
               </ul>
             </CardContent>

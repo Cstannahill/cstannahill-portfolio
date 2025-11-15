@@ -11,7 +11,7 @@ interface HMFeaturedProjectsProps {
 
 const HMFeaturedProjects = ({ projects, locale }: HMFeaturedProjectsProps) => {
   return (
-    <section className="py-12">
+    <section className="py-12" id="featured-projects">
       <div className="mb-8 flex items-center justify-between">
         <h2 className="text-3xl font-bold">Featured Projects</h2>
         <Link

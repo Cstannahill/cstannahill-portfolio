@@ -110,17 +110,20 @@ export default async function BlogPostPage({
 
         {/* Post Header */}
         <header className="mb-12 text-center">
-          <div className="mb-4 flex justify-center space-x-2 text-sm text-foreground">
+          <div className="mb-4 flex flex-col items-center gap-2 text-sm text-foreground">
             <time dateTime={metadata.publishedAt || metadata.date}>
               {formatDate(metadata.publishedAt || metadata.date || "")}
             </time>
 
-            {metadata.tags && metadata.tags.length > 0 && <span>•</span>}
-
             {metadata.tags && metadata.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap justify-center gap-2">
                 {metadata.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
+                  <Link
+                    key={tag}
+                    href={`/${locale}/blog?tag=${encodeURIComponent(tag)}`}
+                  >
+                    <Badge variant="secondary">{tag}</Badge>
+                  </Link>
                 ))}
               </div>
             )}

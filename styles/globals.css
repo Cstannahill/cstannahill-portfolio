@@ -149,6 +149,54 @@ code {
   font-size: 0.875em;
 }
 
+.bullet-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.bullet-list .bullet {
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+  width: 20px;
+  height: 20px;
+}
+
+.bullet-list .text {
+  flex: 1;
+  padding: 0.25rem;
+}
+.bullet-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.bullet-list .bullet {
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+  width: 20px;
+  height: 20px;
+}
+
+.bullet-list .text {
+  flex: 1;
+  padding: 0.25rem;
+}
 /* Custom keyframes for animations */
 @keyframes wiggle {
   0%,

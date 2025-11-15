@@ -2,11 +2,9 @@
 import { Metadata } from "next";
 import { getFeaturedProjects, getLatestPosts } from "@/lib/content";
 import HMHero from "@/components/home/HMHero";
-import HMIntroduction from "@/components/home/HMIntroduction";
 import HMFeaturedProjects from "@/components/home/HMFeaturedProjects";
-import HMTechnicalSkills from "@/components/home/HMTechnicalSkills";
 import HMProfessionalExperience from "@/components/home/HMProfessionalExperience";
-import HMTechStack from "@/components/home/HMTechStack";
+import HMTechCapabilities from "@/components/home/HMTechCapabilities";
 import HMLatestPosts from "@/components/home/HMLatestPosts";
 import HMContact from "@/components/home/HMContact";
 import HMEducationSkills from "@/components/home/HMEducationSkills";
@@ -71,16 +69,13 @@ export default async function HomePage({
       <SectionDivider />
 
       {/* Introduction Section */}
-      <HMIntroduction />
+      {/* <HMIntroduction /> */}
 
       {/* Featured Projects Section */}
       <HMFeaturedProjects projects={featuredProjects} locale={locale} />
 
-      {/* Tech Stack Section */}
-      <HMTechStack />
-
-      {/* Technical Skills Section */}
-      <HMTechnicalSkills />
+      {/* Tech + Skills Section */}
+      <HMTechCapabilities />
 
       {/* Professional Experience Section */}
       <HMProfessionalExperience />

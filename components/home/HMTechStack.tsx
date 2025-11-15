@@ -38,7 +38,7 @@ const HMTechStack = () => {
   ];
 
   return (
-    <section className="py-12 bg-card rounded-lg border border-accent/10">
+    <section className="py-12 bg-card rounded-lg border border-silver/50">
       <SectionHeading
         title="My Tech Stack"
         subtitle="Technologies and tools I use to bring products to life"
