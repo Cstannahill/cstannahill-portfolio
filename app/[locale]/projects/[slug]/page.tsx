@@ -1,3 +1,4 @@
+
 // app/[locale]/projects/[slug]/page.tsx
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +13,7 @@ import { formatDate } from "@/lib/utils";
 import { MDXContent } from "@/components/content/MDXContent";
 import { Badge } from "@/components/ui/badge";
 import { ChevronLeft, ExternalLink, Github } from "lucide-react";
-import { motion } from "motion/react";
+import { AnimatedProjectTitle } from "@/components/shared/AnimatedProjectTitle";
 
 // Generate metadata for the page
 export async function generateMetadata({
@@ -116,12 +117,11 @@ export default async function ProjectPage({
 
         {/* Project Header */}
         <header className="mb-8">
-          <motion.h1
-            layoutId={`project-title-${metadata.slug}`}
+          <AnimatedProjectTitle
+            slug={metadata.slug}
+            title={metadata.title}
             className="mb-4 text-4xl font-bold md:text-5xl"
-          >
-            {metadata.title}
-          </motion.h1>
+          />
 
           <div className="flex flex-wrap items-center gap-4 text-foreground">
             <time
