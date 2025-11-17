@@ -1,0 +1,338 @@
+---
+title: "TrendDev Job Market Analyzer"
+summary: "Serverless data pipelines, GenAI enrichment, and a React intelligence console that turns raw job postings into actionable career insights."
+publishedAt: "2025-11-17"
+slug: "trenddev"
+technologies:
+  [
+    "AWS Lambda",
+    "Amazon Bedrock",
+    "Amazon S3",
+    "Amazon DynamoDB",
+    "Amazon SQS",
+    "Amazon EventBridge",
+    "Amazon Cognito",
+    "Amazon API Gateway",
+    "AWS Amplify",
+    "Amazon CloudWatch",
+    "Neon Postgres",
+    "React",
+    "Vite",
+    "TypeScript",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "TanStack Query",
+    "Zustand",
+  ]
+tags:
+  [
+    "Serverless",
+    "Data Engineering",
+    "AI/ML",
+    "Full-Stack",
+    "Observability",
+    "Developer Tools",
+  ]
+images:
+  [
+    "/images/projects/trenddev/landing.avif",
+    "/images/projects/trenddev/postings-list-view.avif",
+    "/images/projects/trenddev/posting-list-filters.avif",
+    "/images/projects/trenddev/top-tech.avif",
+    "/images/projects/trenddev/trends.avif",
+    "/images/projects/trenddev/resume-insights.avif",
+    "/images/projects/trenddev/resume-analysis-current-stack.avif",
+    "/images/projects/trenddev/resume-analysis-missing-skills.avif",
+    "/images/projects/trenddev/resume-analysis-career-path.avif",
+    "/images/projects/trenddev/resume-analysis-salary-insights.avif",
+    "/images/projects/trenddev/manage-resume-overview.avif",
+    "/images/projects/trenddev/manage-resume-experience.avif",
+  ]
+coverImage: "/images/projects/trenddev/landing.avif"
+featured: true
+siteUrl: "https://main.d2qk81z2cubp0y.amplifyapp.com/"
+sourceUrl: "https://github.com/Cstannahill/job-market-analyzer"
+---
+
+# TrendDev Job Market Analyzer
+
+TrendDev is my end-to-end intelligence layer for the job market: Lambda-based collectors pull postings from Muse, Greenhouse, Lever, and USAJobs, Bedrock enriches each role with normalized skills and salary signals, Neon Postgres powers heavy analytics, and a React + Vite frontend hosted on AWS Amplify turns everything into an interactive experience for candidates. Cognito secures the experience, EventBridge schedules the pipelines, SQS drives asynchronous resume processing, and CloudWatch keeps telemetry for every hop.
+
+<img src="/images/projects/trenddev/top-tech.avif" alt="Top tech snapshot" />
+
+<ProjectTechStack
+  technologies={[
+    {
+      name: "AWS Lambda + EventBridge",
+      description:
+        "26 Lambda functions scheduled via EventBridge coordinate scraping, normalization, trend materialization, packaging, and queue workers.",
+    },
+    {
+      name: "Amazon S3 + DynamoDB",
+      description:
+        "Raw job JSON, resumes, and enrichment tables (job-postings-enhanced, skill-trends-v2) live in durable storage tuned for serverless access patterns.",
+    },
+    {
+      name: "Amazon Bedrock + OpenRouter",
+      description:
+        "Nova Pro batches of 50 postings plus backup OpenRouter prompts generate tech stacks, requirements, summaries, and resume insights.",
+    },
+    {
+      name: "Neon Postgres",
+      description:
+        "Relational replica tables (jobs, technologies, jobs_technologies) back SQL-heavy queries, top-tech stats, and salary percentiles.",
+    },
+    {
+      name: "React + Vite + shadcn/ui",
+      description:
+        "TanStack Query, Zustand auth stores, and shadcn components deliver fast job browsing, trend dashboards, and resume insights.",
+    },
+    {
+      name: "AWS Amplify & API Gateway",
+      description:
+        "Amplify hosts the SPA and provides Storage helpers for direct S3 uploads, while multiple API Gateways (HTTP, REST, and SQS proxy) fan out requests.",
+    },
+  ]}
+/>
+
+## Product Overview
+
+Job Market Analyzer solves three pain points simultaneously:
+
+1. **Fresh, deduped job data** - **ingest-jobs** fans out to Muse/Greenhouse/Lever/USAJobs, hashes each posting, and writes canonical records into DynamoDB (with an optional archival drop to S3 by source).
+2. **Structured intelligence** - **bedrock-ai-extractor** (Nova Pro) and **openrouter-ai-enhancement-from-table** run nightly via EventBridge to normalize titles, work modes, salary hints, technologies, and requirements, while **calculate-job-stats** pushes aggregate counts into the **job-postings-stats** table for the UI hero.
+3. **Actionable UX** - The React console exposes **/postings** (infinite-scroll job list), **/trends** (skill and technology trend explorer), **/top-tech**, and **/resumes** flows. Amplify Storage + pre-signed URLs handle uploads, Cognito secures access, and SQS decouples resume analysis.
+
+<img
+  src="/images/projects/trenddev/postings-list-view.avif"
+  alt="Postings list"
+/>
+
+<ProjectFeatureShowcase
+  title="Experience Highlights"
+  groups={[
+    {
+      title: "Market Intelligence Console",
+      image: "/images/projects/trenddev/posting-list-filters.avif",
+      features: [
+        {
+          title: "Infinite job feed",
+          description:
+            "TanStack Query + the Dynamo-backed **get-job-postings-paginated** Lambda provide cursor-based pagination, seniority filters, remote-mode filters, and fast tech search chips.",
+          status: "implemented",
+        },
+        {
+          title: "Job drill-downs",
+          description:
+            "Dedicated detail routes hydrate Bedrock-enriched descriptions, co-occurring skills, salary ranges, and CTA links.",
+          status: "implemented",
+        },
+        {
+          title: "Top technologies view",
+          description:
+            "Neon SQL endpoint (**get-job-postings-paginated-neon**) powers deterministic filtering and sorting for enterprise candidates.",
+          status: "implemented",
+        },
+      ],
+    },
+    {
+      title: "Trend Intelligence",
+      image: "/images/projects/trenddev/trends.avif",
+      features: [
+        {
+          title: "Rising tech radar",
+          description:
+            "**get-trends-v2** composes weighted medians, remote-share estimates, and co-occurrence data so components like **RisingGrid** and **TechDetailPanel** stay data-dense.",
+          status: "implemented",
+        },
+        {
+          title: "Region + period filters",
+          description:
+            "V2 endpoints accept ISO week periods and regional scopes, letting candidates anchor insights to their market before downloading CSVs.",
+          status: "implemented",
+        },
+        {
+          title: "Top tech salary bands",
+          description:
+            "Trend detail cards display salary p50/p75/p95 bands that are recalculated nightly from Dynamo aggregates and Neon rollups.",
+          status: "implemented",
+        },
+      ],
+    },
+    {
+      title: "AI Resume Intelligence",
+      image: "/images/projects/trenddev/resume-insights.avif",
+      features: [
+        {
+          title: "Amplify-backed uploads",
+          description:
+            "The uploader requests pre-signed URLs from **resume-presigned-url**, streams DOCX/PDF files directly to S3, and ensures Cognito tokens wrap every call.",
+          status: "implemented",
+        },
+        {
+          title: "Async analysis queue",
+          description:
+            "**compare-resume-id** enqueues SQS jobs, **worker-process-resume** downloads the file, extracts content (Mammoth + hosted PyPDF), normalizes skills with Bedrock, and writes results to Dynamo.",
+          status: "implemented",
+        },
+        {
+          title: "Career path insights",
+          description:
+            "Resume detail cards surface current stack fit, missing skills, salary benchmarks, and role suggestions computed from the same trend tables.",
+          status: "implemented",
+        },
+      ],
+    },
+  ]}
+/>
+
+## Architecture Notes
+
+- **Multi-source ingestion.** **job-posting-aggregator** scrapes up to 500 Muse pages per run, strips HTML with Cheerio, and writes JSON into S3 (**job-postings-bucket-cstannahill**). **ingest-jobs** adapters (Muse, Greenhouse, Lever, USAJobs) normalize every record, hash descriptions, dedupe via Dynamo batch gets, and optionally archive raw payloads.
+- **Normalization + enrichment.** **normalize-tables** takes Dynamo records flagged as "pending normalization", massages fields (location, salary, skill arrays), and upserts them into Neon **jobs**, **technologies**, and **jobs_technologies**. **bedrock-ai-extractor** processes batches of 50 files, calling **amazon.nova-pro-v1:0** and storing results in **job-postings-enhanced**. **aggregate-skill-trends** + **aggregate-skill-trends-v2** roll those into **skill-trends-v2** with co-occurrence matrices, remote shares, and salary percentiles.
+- **Analytics + APIs.** **calculate-job-stats** uses Neon queries to derive total postings and top technologies (top 500). **get-trends-v2** exposes **/v2/trends/technologies/top**, **/rising**, **/technology/{'name'}**, and **/overview**. API Gateway stacks (**api/http-api**, **api/rest-api**, **api/sqs-jobs-api**) route traffic to the right Lambda or queue. EventBridge cron rules trigger ingestion, enrichment, normalization, and stats jobs daily; CloudWatch retains structured JSON logs for each Lambda via the lightweight logger helpers.
+- **Authentication + UX.** **auth-register**, **auth-login**, **auth-verify-email**, **auth-get-current-user**, and **cognito-post-confirmation** wrap Cognito operations so the frontend can stay plain React Query + fetch. Zustand stores guard routes, and **useAuthInitialization** ensures no protected view renders until Cognito tokens are hydrated. Amplify hosts the SPA and handles branch previews; Amplify Storage helpers plus pre-signed URLs keep the resume upload path entirely serverless.
+- **Async resume workflow.** **resume-presigned-url** issues S3 URLs, uploads land in per-user prefixes, **compare-resume-id** creates the job record and sends a message to SQS, and **worker-process-resume** handles extraction, Bedrock normalization, salary lookups, and writes insights back to Dynamo. **get-job-processing-status** exposes the job's state so the frontend polling loop can resolve to "complete", "processing", or "failed".
+- **Packaging & deployment.** The root **zip.js** script zips any Lambda folder consistently, and **scripts/packageLambdas.js** can iterate every lambda. That keeps CI simple and ensures the 20+ functions (auth, ingestion, resume, stats, AI, APIs) all ship with the same structure.
+
+## Visual Story
+
+<img
+  style={{
+    padding: "1rem 0",
+    borderRadius: "1.5rem",
+  }}
+  src="/images/projects/trenddev/trends.avif"
+  alt="Trend explorer"
+/>
+
+<img
+  style={{ padding: "1rem 0", borderRadius: "1.5rem" }}
+  src="/images/projects/trenddev/resume-analysis-current-stack.avif"
+  alt="Resume insights detail"
+/>
+
+<img
+  style={{ padding: "1rem 0", borderRadius: "1.5rem" }}
+  src="/images/projects/trenddev/resume-analysis-career-path.avif"
+  alt="Career path suggestions"
+/>
+
+<img
+  style={{ padding: "1rem 0", borderRadius: "1.5rem" }}
+  src="/images/projects/trenddev/resume-analysis-salary-insights.avif"
+  alt="Resume salary insights"
+/>
+
+<img
+  style={{ padding: "1rem 0", borderRadius: "1.5rem" }}
+  src="/images/projects/trenddev/manage-resume-overview.avif"
+  alt="Manage resumes"
+/>
+
+## Delivery Timeline
+
+<ProjectTimeline
+  title="Development Journey"
+  items={[
+    {
+      date: "October 3, 2025",
+      title: "Ingestion foundation",
+      description:
+        "Built the Muse + Greenhouse + Lever adapters, centralized packaging (**zip.js**), and S3 archival path.",
+      status: "completed",
+    },
+    {
+      date: "October 20, 2025",
+      title: "AI enrichment & trends v2",
+      description:
+        "Hooked up Bedrock Nova batches, Dynamo trend tables, Neon replicas, and the v2 trend endpoints.",
+      status: "completed",
+    },
+    {
+      date: "November 7, 2025",
+      title: "Resume intelligence",
+      description:
+        "Introduced Amplify-backed uploads, Cognito-guarded routes, SQS worker, and Bedrock-powered resume insights.",
+      status: "completed",
+    },
+    {
+      date: "November 7, 2025",
+      title: "UX polish & observability",
+      description:
+        "Shipped the new landing hero, Top Tech board, Trends v2 UI, CloudWatch dashboards, and Amplify-hosted previews.",
+      status: "in-progress",
+    },
+  ]}
+/>
+
+## Project Metrics
+
+<ProjectMetrics
+  title="Impact by the Numbers"
+  metrics={[
+    {
+      label: "Lambda services",
+      value: "25+",
+      icon: "λ",
+      progress: 90,
+    },
+    {
+      label: "Job ingestion window",
+      value: "500 pages/run",
+      icon: "⏱",
+      progress: 80,
+    },
+    {
+      label: "LLM enrichment batch",
+      value: "50 files",
+      icon: "֎🇦🇮",
+      progress: 65,
+    },
+    {
+      label: "Technologies tracked",
+      value: "500",
+      icon: "⚙️",
+      progress: 95,
+    },
+  ]}
+/>
+
+## Challenges & Solutions
+
+<ProjectChallengeCard
+  title="Normalizing multi-source job data"
+  challenge="Each source (Muse, Greenhouse, Lever, USAJobs) exposes different pagination, schemas, and HTML-heavy descriptions, which made deduplication and enrichment error prone."
+  solution="Centralized adapters feed **ingest-jobs**, the handler hashes descriptions, batch-checks Dynamo for existing postings, sanitizes content with Cheerio, and archives raw JSON when configs request it."
+  impact="Reduced duplicate postings and let the enrichment pipeline focus on truly new or changed jobs, lowering Dynamo + Bedrock spend."
+  difficulty="medium"
+  domain="Data Engineering"
+/>
+
+<ProjectChallengeCard
+  title="Balancing AI quality and cost"
+  challenge="Bedrock Nova is accurate but expensive, and batches larger than ~50 postings risk timeouts. Resume insights also need context from market trends."
+  solution="Processed S3 files in MAX_FILES_PER_RUN=50 batches, cleaned model output (JSON guards, deduped arrays), and augmented prompts with Neon + Dynamo stats so the LLM can anchor salary and stack insights."
+  impact="Reliable enrichment that stays within the Lambda timebox while producing structured skill, tech, benefit, and salary fields consumed across the app."
+  difficulty="hard"
+  domain="AI/ML"
+/>
+
+<ProjectChallengeCard
+  title="Asynchronous resume experience"
+  challenge="Uploading multi-MB resumes directly to Lambdas was slow, and users needed status feedback while AI processing ran asynchronously."
+  solution="Amplify Storage issues pre-signed PUT URLs, the SPA tracks upload progress, **compare-resume-id** queues jobs in SQS, and a worker Lambda updates Dynamo statuses that the frontend polls via **/jobs/{jobId}**."
+  impact="Uploads finish in seconds, resume insights return in under four minutes, and CloudWatch logs expose every state change for support."
+  difficulty="medium"
+  domain="Resume Intelligence"
+/>
+
+## AWS Services in Play
+
+- **SQS & API Gateway (SQS proxy)** - queueing resume jobs and exposing **/jobs** 202 endpoints so the UI can poll.
+- **EventBridge** - cron triggers for scraping, enrichment, normalization, and stats Lambdas to keep data fresh without manual intervention.
+- **Cognito** - user registration, login, verification, and session refresh handled by dedicated Lambdas so the SPA stays framework agnostic.
+- **Amplify** - hosts the Vite build, handles branch previews, and wires Amplify Storage helpers for direct S3 uploads.
+- **CloudWatch** - captures the JSON log lines emitted by helpers inside **ingest-jobs**, **get-trends-v2**, and the resume worker, plus dashboards for success/error counts.
+
+The result is a data-backed portfolio piece that demonstrates how I design resilient ingestion pipelines, layer GenAI responsibly, and deliver polished UX for candidates navigating the market.
