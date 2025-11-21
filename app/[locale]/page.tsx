@@ -10,6 +10,7 @@ import HMContact from "@/components/home/HMContact";
 import HMEducationSkills from "@/components/home/HMEducationSkills";
 import HMAreasOfInterest from "@/components/home/HMAreasOfInterest";
 import SectionDivider from "@/components/shared/SectionDivider";
+import HMTicker from "@/components/home/HMTicker";
 
 export async function generateMetadata({
   params,
@@ -74,17 +75,19 @@ export default async function HomePage({
       {/* Featured Projects Section */}
       <HMFeaturedProjects projects={featuredProjects} locale={locale} />
 
+      {/* Ticker */}
+      {/* <HMTicker /> */}
       {/* Tech + Skills Section */}
-      <HMTechCapabilities />
+      {/* <HMTechCapabilities /> */}
 
       {/* Professional Experience Section */}
-      <HMProfessionalExperience />
-
-      {/* Education & Skills - MERGED */}
-      <HMEducationSkills />
+      {/* <HMProfessionalExperience /> */}
 
       {/* Areas of Interest - NEW */}
       <HMAreasOfInterest />
+      {/* Education & Skills - MERGED */}
+      <HMEducationSkills />
+
 
       {/* Latest Blog Posts */}
       <HMLatestPosts posts={latestPosts} locale={locale} />

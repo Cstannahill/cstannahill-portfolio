@@ -15,6 +15,9 @@ import {
   ProjectMetrics,
   ProjectTechStack,
   ProjectTimeline,
+  ProjectVideoPlayer,
+  ProjectCarousel,
+  ProjectTicker,
 } from "@/components/project";
 
 // Import blog components
@@ -153,6 +156,9 @@ export const MDXComponents = {
   ProjectMetrics,
   ProjectTechStack,
   ProjectTimeline,
+  ProjectVideoPlayer,
+  ProjectCarousel,
+  ProjectTicker,
   Callout,
   FeatureList,
   ProgressSection,

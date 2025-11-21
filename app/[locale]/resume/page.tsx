@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import Image from "next/image";
 import BulletIcon from "@/app/assets/lists/24.svg";
+import { SiGithub, SiGmail } from "@icons-pack/react-simple-icons"
 
 const summary =
   "Full-stack engineer blending TypeScript, .NET, and Python to ship AI-powered analytics, legislative tooling, and operational dashboards. Comfortable owning the stack end-to-end—from React/Next.js frontends to AWS serverless backends and AI integrations.";
@@ -25,10 +26,10 @@ type Experience = {
 const experience: Experience[] = [
   {
     title: "Independent Software Engineer",
-    company: "Self-Employed — Remote",
+    company: "None",
     period: "Apr 2024 – Present",
     bullets: [
-      "Developing full-stack applications and backend systems to expand technical depth, explore AI integrations, and demonstrate end-to-end delivery of deployable solutions.",
+      "Developing full-stack applications and backend systems, exploring AI integrations, and demonstrating end-to-end delivery of deployable solutions.",
     ],
     projects: [
       {
@@ -38,10 +39,11 @@ const experience: Experience[] = [
           { label: "GitHub Repository", href: "https://github.com/Cstannahill/job-market-analyzer" },
         ],
         bullets: [
-          "AI-powered job market analytics platform analyzing 500+ tech job postings daily to provide salary insights, skill gap analysis, and career path recommendations.",
-          "Architected a serverless data pipeline processing 1,000+ job postings daily using AWS Lambda, EventBridge, DynamoDB, and S3, extracting 4,000+ unique technologies and calculating real-time market demand and salary insights.",
-          "Built an AI-powered resume analysis system using Amazon Bedrock (Nova Pro) that generates personalized insights including current market value, skill ROI calculations, and career progression recommendations with 85–90% role fit scores.",
-          "Developed a React + TypeScript dashboard with authentication (AWS Cognito), allowing users to upload/manage 20 resumes, visualize skill stack completeness scores, and view job recommendations filtered by 900+ technologies.",
+          "Architected a multi-service AWS serverless platform (20+ Lambdas, 5 API Gateways, Cognito auth, 10+ DynamoDB tables + Neon / Postgres) powering daily ingestion and analytics of tech job postings.",
+          "Built an event - driven ingestion pipeline with Lambda + EventBridge + S3 + DynamoDB that processes thousands of postings/ day, normalizes skills(~7k unique technologies), and generates trend + salary analytics in near - real time.",
+          "Implemented AI resume insights using Bedrock Nova + custom normalizers to produce role-fit scores, salary anchors, and skill ROI; supports multi- resume management, presigned uploads, and async processing.",
+          "Designed and shipped a React/TypeScript/Vite dashboard with reusable component architecture, filtering/search across 500 + high signal technologies, responsive layouts, and Vitest unit coverage for critical UI + services.",
+          "Achieved 95-100 Lighthouse performance scores across key routes despite data-heavy visualizations."
         ],
       },
       {
@@ -51,29 +53,29 @@ const experience: Experience[] = [
           { label: "GitHub Repository", href: "https://github.com/Cstannahill/legistrack" },
         ],
         bullets: [
-          "Legislative tracking app that simplifies U.S. federal bills and executive orders using AI summarization.",
-          "Created a Next.js 15 (App Router) and Inngest/AWS Lambda web application to accurately parse and summarize dense legalese in U.S. legislation and executive orders.",
-          "Designed a normalized schema to handle bills, sponsors, votes, and amendments efficiently using PostgreSQL (Prisma ORM), allowing for linking of companion bills, categories, members, and statuses.",
-          "Integrated Claude AI, OpenRouter (DeepSeek v3.1), and OpenAI models via an API/adapter to generate plain-English legislative summaries efficiently, enabling ~10 bills to be processed with accurate summary generation and key points identified for less than $0.01.",
+          "Built a Next.js 15 + Prisma/Postgres platform that ingests and tracks U.S. bills + executive orders, exposing searchable, categorized legislative timelines",
+          "Designed a normalized relational schema (bills, actions, sponsors, votes, companion bills, categories) and optimized indexes / queries for fast filtering on large datasets.",
+          "Implemented automated ingestion + summarization workflows (Inngest → AWS Lambda migration) with retries/DLQ patterns and strict rate - limit handling.",
+          "Integrated multi-provider LLM summarization (Claude, OpenRouter, OpenAI) with caching + model adapters, producing plain - English summaries at sub - cent cost per bill.",
         ],
       },
     ],
   },
   {
     title: "Programmer",
-    company: "AnswerNet — Remote",
+    company: "AnswerNet - Remote",
     period: "Nov 2022 – Apr 2024",
     bullets: [
-      "Designed and maintained end-to-end ETL pipelines in .NET, processing large lead files and automating SFTP transfers, reducing manual intervention by 70%.",
-      "Architected and supported .NET APIs, improving integration capabilities with OnPage callback handling and legacy VB APIs.",
-      "Enhanced campaign operations through dynamic CallScripter scripts, SSRS reports, and REST API troubleshooting.",
+      "Built and maintained .NET ETL pipelines processing multi-thousand lead records daily across 46 campaigns, automating SFTP ingestion + validation to cut manual ops by ~70%.",
+      "Designed and supported internal + partner-facing APIs, including legacy integration layers, improving delivery reliability and reducing turnaround for new campaigns.",
+      "Added record-level safe-fail + alerting and partnered with campaign managers to ship fixes on aggressive timelines, reducing batch downtime by ~40%.",
       "Implemented performance monitoring and optimization strategies to ensure application efficiency.",
       "Collaborated on cross-functional teams to drive project success and implement best practices.",
     ],
   },
   {
     title: "Full Stack Software Engineer",
-    company: "Carte — Remote",
+    company: "Carte - Remote",
     period: "Aug 2022 – Nov 2022",
     bullets: [
       "Architected and developed a comprehensive .NET analytics API, creating all controllers, service layers, and data-access logic to power a real-time admin dashboard.",
@@ -101,15 +103,14 @@ const skillBuckets = [
       "Node.js",
       "AWS Lambda/API Gateway/S3",
       "Inngest",
-      "Docker",
     ],
   },
   {
     title: "Databases",
-    items: ["PostgreSQL", "SQL Server", "MongoDB", "SQLite", "DynamoDB"],
+    items: ["PostgreSQL", "Supabase", "Neon", "SQL Server", "MongoDB", "SQLite", "DynamoDB"],
   },
   {
-    title: "AI & Tooling",
+    title: "AI",
     items: [
       "OpenAI",
       "Anthropic",
@@ -117,24 +118,41 @@ const skillBuckets = [
       "Hugging Face",
       "Ollama",
       "LangChain",
-      "GitHub Actions",
+      "OpenRouter"
     ],
   },
+  {
+    title: "DevOps & Tools",
+    items: [
+      "Docker",
+      "Git",
+      "GitHub",
+      "GitHub Actions",
+      "GitLab",
+      "GitLab CI",
+      "Bash",
+      "Linux (Unbuntu)",
+    ]
+  }
+
 ];
 
+const learningBuckets = [
+  { title: "Languages", items: ["Rust", "Go"] }
+]
 const projectHighlights = [
   {
     name: "TrendDev",
     description:
       "AI job-market analyzer that ingests 500+ postings daily, scores resumes vs. market demand, and surfaces salary + skill gaps.",
-    tech: ["Next.js", "AWS Amplify", "Bedrock", "DynamoDB", "React Charts"],
+    tech: ["Next.js", "AWS Lambda", "Cognito", "API Gateway", "AWS Amplify", "S3", "Bedrock", "DynamoDB", "Recharts"],
     link: "https://main.d2qk81z2cubp0y.amplifyapp.com/",
   },
   {
     name: "LegisTrack",
     description:
       "U.S. legislation tracker with AI summarization, normalized PostgreSQL schema, and companion bill linking.",
-    tech: ["Next.js 15", "Prisma", "PostgreSQL", "Claude", "Inngest"],
+    tech: ["Next.js 15", "Prisma", "PostgreSQL", "Supabase", "OpenRouter", "Claude", "Inngest"],
     link: "https://legistrack.vercel.app/",
   },
 ];
@@ -219,13 +237,32 @@ export default async function ResumePage({
           <p className="mt-4 max-w-3xl text-foreground/80">{summary}</p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-foreground/70">
             <span className="rounded-full border border-accent/30 px-3 py-1">
-              christiantannahill2@gmail.com
+              <Link
+                href="mailto:christiantannahill2@gmail.com"
+                target="_blank"
+                className="flex items-center"
+              >
+                <SiGmail size={16} className="mr-2" /> christiantannahill2@gmail.com
+              </Link>
             </span>
-            <span className="rounded-full border border-accent/30 px-3 py-1">
-              linkedin.com/in/christian-tannahill
+            <span className="rounded-full border border-accent/30 hover:bg-accent/10 px-3 py-1">
+              <Link
+                href="https://linkedin.com/in/christian-tannahill"
+                target="_blank"
+                className="flex items-center border-accent/40 px-0 py-0 text-sm  rounded-full"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-linkedin-icon lucide-linkedin mx-2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
+                /in/christian-tannahill
+              </Link>
+
             </span>
-            <span className="rounded-full border border-accent/30 px-3 py-1">
-              github.com/cstannahill
+            <span className="rounded-full border border-accent/30 hover:bg-accent/10 px-3 py-1">
+              <Link
+                className="flex items-center"
+                href="https://github.com/Cstannahill"
+                target="_blank">
+                <SiGithub size={16} className="col-span-1 mr-2" /> Cstannahill
+              </Link>
             </span>
           </div>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -286,6 +323,34 @@ export default async function ResumePage({
           ))}
         </div>
       </section>
+
+      {/* <section className="mt-12 space-y-6">
+        <SectionHeading
+          title="Areas I'm exploring"
+          subtitle="Tools I've been learning or working with, but not quite as proficient in yet."
+          alignment="left"
+        />
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {learningBuckets.map((bucket) => (
+            <div
+              key={bucket.title}
+              className="rounded-2xl border border-blue-500/40 bg-blue-500/10 p-5"
+            >
+              <div className="mb-3 flex items-center justify-between">
+                <h3 className="text-lg font-semibold">{bucket.title}</h3>
+                <Badge variant="silver">{bucket.items.length}</Badge>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {bucket.items.map((item) => (
+                  <Badge key={item} variant="outline" className="shadow-stone-700">
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section> */}
 
       <section className="mt-12">
         <SectionHeading
