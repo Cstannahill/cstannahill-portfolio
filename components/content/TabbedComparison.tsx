@@ -16,7 +16,6 @@ export interface TabbedComparisonProps {
     className?: string;
 }
 
-// The fixed, user-specified display order
 const MODEL_ORDER = [
     "Anthropic Claude Sonnet 4.5",
     "Anthropic Claude Haiku 3.5",
@@ -26,11 +25,11 @@ const MODEL_ORDER = [
 ];
 
 const MODEL_LABELS: Record<string, string> = {
-  "Anthropic Claude Sonnet 4.5": "Claude Sonnet 4.5",
-  "Anthropic Claude Haiku 3.5": "Claude Haiku 3.5",
-  "OpenAI GPT-5 Nano": "GPT-5 Nano",
-  "OpenAI GPT-5 Mini": "GPT-5 Mini",
-  "DeepSeek V3.1 (via OpenRouter)": "DeepSeek V3.1",
+    "Anthropic Claude Sonnet 4.5": "Claude Sonnet 4.5",
+    "Anthropic Claude Haiku 3.5": "Claude Haiku 3.5",
+    "OpenAI GPT-5 Nano": "GPT-5 Nano",
+    "OpenAI GPT-5 Mini": "GPT-5 Mini",
+    "DeepSeek V3.1 (via OpenRouter)": "DeepSeek V3.1",
 };
 
 interface SectionProps {

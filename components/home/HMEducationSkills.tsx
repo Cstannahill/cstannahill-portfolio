@@ -7,10 +7,10 @@ import { Badge } from "@/components/ui/badge";
 const HMEducationSkills = () => {
   const skillsData = [
     { name: "Frontend Development", proficiency: 90 },
+    { name: "UI/UX Implementation", proficiency: 85 },
     { name: "Backend Development", proficiency: 85 },
     { name: "Database Design", proficiency: 80 },
-    { name: "UI/UX Implementation", proficiency: 75 },
-    { name: "DevOps & Deployment", proficiency: 70 },
+    { name: "DevOps & Deployment", proficiency: 75 },
   ];
 
   const certifications = [
@@ -60,7 +60,26 @@ const HMEducationSkills = () => {
                 </ul>
               </CardContent>
             </Card>
-
+            <Card className="border-accent/10">
+              <div className="rounded-lg px-4">
+                <h3 className="font-semibold mb-2 flex items-center">
+                  <span className="text-gradient bg-gradient-to-r from-stone-800 via-cyan-800 to-zinc-700 border border-zinc-400 rounded-lg p-1">
+                    Ongoing Learning
+                  </span>
+                </h3>
+                <p className="text-foreground text-sm">
+                  Currently focused on expanding my expertise in cloud
+                  architecture, serverless applications, and integrating AI
+                  functionalities into web applications.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-4">
+                  <Badge variant="teal">Azure</Badge>
+                  <Badge variant="gold">OpenAI Integration</Badge>
+                  <Badge variant="purple">Serverless</Badge>
+                  <Badge variant="silver">CI/CD Pipelines</Badge>
+                </div>
+              </div>
+            </Card>
             {/* Microsoft Certification */}
             {false && (
               <div className="space-y-4">
@@ -91,7 +110,7 @@ const HMEducationSkills = () => {
             {skillsData.map((skill, index) => (
               <div
                 key={index}
-                className="mb-4 bg-card rounded-lg border border-accent/10 p-4"
+                className="mb-9 bg-card rounded-lg border border-accent/10 p-4"
               >
                 <div className="flex justify-between mb-1">
                   <span className="font-medium">{skill.name}</span>
@@ -104,26 +123,7 @@ const HMEducationSkills = () => {
                 />
               </div>
             ))}
-            <Card className="border-accent/10">
-              <div className="bg-secondary/30 rounded-lg px-4">
-                <h3 className="font-semibold mb-2 flex items-center">
-                  <span className="text-gradient bg-gradient-to-r from-stone-800 via-cyan-800 to-zinc-700 border border-zinc-400 rounded-lg p-1">
-                    Ongoing Learning
-                  </span>
-                </h3>
-                <p className="text-foreground text-sm">
-                  Currently focused on expanding my expertise in cloud
-                  architecture, serverless applications, and integrating AI
-                  functionalities into web applications.
-                </p>
-                <div className="flex flex-wrap gap-2 mt-4">
-                  <Badge variant="teal">Azure</Badge>
-                  <Badge variant="gold">OpenAI Integration</Badge>
-                  <Badge variant="purple">Serverless</Badge>
-                  <Badge variant="silver">CI/CD Pipelines</Badge>
-                </div>
-              </div>
-            </Card>
+
           </div>
         </div>
       </div>

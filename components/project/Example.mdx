@@ -156,3 +156,70 @@ This is an example project that demonstrates how to use the new project UI compo
   difficulty="medium"
   domain="Frontend"
 />
+
+## Immersive Walkthrough
+
+<ProjectVideoPlayer
+  title="Interactive Design Review"
+  description="A narrated walkthrough that highlights decision making, prototyping, and the measurable uplift."
+  src={{ src: "/videos/projects/example/showcase.mp4", type: "video/mp4" }}
+  poster="/images/projects/example/video-poster.jpg"
+  captions={{
+    src: "/videos/projects/example/showcase.vtt",
+    label: "English",
+  }}
+  chapters={[
+    { time: 0, label: "Overview", description: "Project context and goals" },
+    { time: 48, label: "Design Handoff" },
+    {
+      time: 120,
+      label: "Results",
+      description: "Churn reduction, adoption, performance gains",
+    },
+  ]}
+  cta={{ href: "https://example.com/demo", label: "View live demo" }}
+/>
+
+## Visual Storytelling
+
+<ProjectCarousel
+  slides={[
+    {
+      src: "/images/projects/example/carousel-dashboard.jpg",
+      alt: "Analytic dashboard overview",
+      title: "Unified dashboard",
+      description: "Mission control for operators with contextual automations.",
+      badge: "Release 3.1",
+    },
+    {
+      src: "/images/projects/example/carousel-automations.jpg",
+      alt: "Automation builder",
+      title: "Workflow engine",
+      description: "Drag-and-drop builder that triggers 312+ automations daily.",
+      link: { href: "https://example.com/automations" },
+    },
+    {
+      src: "/images/projects/example/carousel-mobile.jpg",
+      alt: "Mobile reporting",
+      title: "Mobile insights",
+      description: "Glanceable cards, offline sync, and biometric approvals.",
+    },
+  ]}
+/>
+
+## Momentum Highlights
+
+<ProjectTicker
+  variant="outline"
+  pauseOnHover
+  size="lg"
+  items={[
+    { label: "150k+ MAUs", description: "up 32% YoY" },
+    { label: "SOC 2 Type II Ready" },
+    { label: "App Store ★4.9 rating" },
+    {
+      label: "Product Hunt #1 Product of the Day",
+      icon: "🚀",
+    },
+  ]}
+/>

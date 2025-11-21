@@ -37,10 +37,10 @@ export function ProjectCard({
   const technologies = project?.technologies || [];
 
   return (
-    <Card className="group flex h-full flex-col overflow-hidden rounded-lg border border-card/20 bg-card transition-all duration-300 hover:border-accent/20 hover:bg-secondary/40 hover:shadow-lg hover:shadow-accent/5">
+    <Card className="group p-3 flex h-full flex-col overflow-hidden rounded-lg border border-silver bg-card transition-all duration-300 hover:border-accent/20 hover:bg-secondary/40 hover:shadow-lg hover:shadow-accent/5">
       {coverImage && (
         <motion.div
-          className="relative aspect-[16/9] w-full overflow-hidden rounded-lg"
+          className="relative aspect-[16/9] w-full overflow-hidden rounded-lg border border-white"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.45, ease: "easeOut" }}
         >

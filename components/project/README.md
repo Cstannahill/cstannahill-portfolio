@@ -137,3 +137,81 @@ All components use Tailwind CSS for styling and are designed to work with both l
 ## Accessibility
 
 All components are designed with accessibility in mind and include appropriate ARIA attributes. They also provide visual indicators for different states and support keyboard navigation.
+### ProjectVideoPlayer
+
+Showcases MP4 or HLS assets with Vidstack controls, descriptive metadata, highlight chapters, captions, and an optional CTA.
+
+```tsx
+<ProjectVideoPlayer
+  title="Design Review Walkthrough"
+  description="A narrated tour across the new design system."
+  src={{
+    src: "/videos/design-review.mp4",
+    type: "video/mp4",
+  }}
+  poster="/images/projects/design-review/poster.jpg"
+  autoPlay={false}
+  muted
+  captions={{
+    src: "/videos/design-review/captions.vtt",
+    label: "English",
+  }}
+  chapters={[
+    { time: 12, label: "Intro", description: "Brief context" },
+    { time: 76, label: "Component upgrades" },
+    { time: 142, label: "Results" },
+  ]}
+  cta={{ href: "https://example.com/demo", label: "Launch live demo" }}
+/>
+```
+
+### ProjectCarousel
+
+Creates a responsive Embla-powered carousel with optional autoplay, slide metadata, and a render-prop for bespoke slides.
+
+```tsx
+<ProjectCarousel
+  autoPlay
+  interval={5000}
+  slides={[
+    {
+      src: "/images/projects/carousel/hero.jpg",
+      alt: "Hero UI",
+      title: "Reimagined dashboard",
+      description: "Tiles, metrics, and personalized actions",
+      badge: "v2.5",
+      link: { href: "/projects/dashboard", label: "Read case study" },
+    },
+    {
+      src: "/images/projects/carousel/mobile.jpg",
+      alt: "Mobile view",
+      title: "Mobile-first experience",
+      description: "Gestures, offline mode, biometric auth",
+    },
+  ]}
+/>
+```
+
+### ProjectTicker
+
+Animates achievements, partner logos, or text snippets using Motion's `useAnimate`, respecting reduced-motion and offering pause-on-hover.
+Supports optional `showLabels` and `size` props (`"md"`, `"lg"`, `"xl"`) to control how prominent each marquee tile appears.
+
+```tsx
+<ProjectTicker
+  size="lg"
+  showLabels
+  speed={20}
+  pauseOnHover
+  variant="outline"
+  items={[
+    { label: "150k+ monthly users" },
+    { label: "NPS +32", description: "after redesign" },
+    { label: "SOC 2 Type II Ready" },
+    {
+      label: "Featured on Product Hunt",
+      icon: "🔥",
+    },
+  ]}
+/>
+```
